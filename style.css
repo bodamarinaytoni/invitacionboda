@@ -14,7 +14,8 @@
 @media (max-width: 768px) {
   .hero {
     background-size: contain;
-    background-color: #f8f8f8; /* fondo por si no cubre todo */
+    background-color: #f8f8f8;
+    background-position: top;/* fondo por si no cubre todo */
   }
 }
 
