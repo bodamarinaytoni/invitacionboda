@@ -24,7 +24,7 @@
   padding: 3rem 2rem;
   border-radius: 1rem;
   text-align: center;
-  width: 60%;               /* más alto que ancho */
+  width: 75%;               /* más alto que ancho */
   max-width: 500px;
   min-height: 300px;        /* lo hace más alargado verticalmente */
   display: flex;
@@ -75,4 +75,6 @@
 html, body {
   height: 100%;
   width: 100%;
+    overflow-x: hidden;
+
 }
