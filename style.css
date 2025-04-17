@@ -30,10 +30,12 @@
 
 
 .overlay h1 {
-  font-size: 3rem;
-  margin-bottom: 1rem;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 3.5rem;
   color: #333;
+  margin-bottom: 1rem;
 }
+
 
 .overlay p {
   font-size: 1.5rem;
