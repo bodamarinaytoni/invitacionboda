@@ -2,31 +2,104 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Mi Página Web</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Boda Marina y Antonio</title>
   <style>
+    /* Estilos generales */
     body {
+      font-family: Arial, sans-serif;
       margin: 0;
-      background: #f9f9f9;
-      font-family: sans-serif;
+      padding: 0;
+      background-color: #f4f4f4;
     }
-    header {
-      background-color: #333;
-      color: white;
-      padding: 20px;
+
+    h1 {
+      font-size: 5vw;
       text-align: center;
+      color: #333;
     }
-    main {
-      padding: 30px;
+
+    .container {
+      width: 80%;
+      margin: 0 auto;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    /* Estilos para pantallas medianas (tabletas) */
+    @media (max-width: 768px) {
+      .container {
+        width: 90%;
+      }
+
+      h1 {
+        font-size: 4vw;
+      }
+    }
+
+    /* Estilos para pantallas pequeñas (móviles) */
+    @media (max-width: 480px) {
+      .container {
+        width: 100%;
+      }
+
+      h1 {
+        font-size: 6vw;
+      }
+    }
+
+    /* Flexbox para contenido */
+    .flex-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    .flex-item {
+      flex: 1 1 30%;
+      margin: 10px;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    @media (max-width: 768px) {
+      .flex-item {
+        flex: 1 1 45%;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .flex-item {
+        flex: 1 1 100%;
+      }
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>¡Bienvenido a mi sitio web!</h1>
-  </header>
-  <main>
-    <p>Este sitio está hecho con GitHub Pages 🚀</p>
-  </main>
+
+  <h1>Boda Marina y Antonio</h1>
+
+  <div class="container">
+    <div class="flex-container">
+      <div class="flex-item">
+        <h2>Bienvenidos</h2>
+        <p>Estamos muy felices de compartir este momento con ustedes.</p>
+      </div>
+      <div class="flex-item">
+        <h2>Fecha</h2>
+        <p>La boda será el 12 de junio de 2025.</p>
+      </div>
+      <div class="flex-item">
+        <h2>Ubicación</h2>
+        <p>La ceremonia será en la iglesia de San Pedro.</p>
+      </div>
+    </div>
+  </div>
+
 </body>
 </html>
