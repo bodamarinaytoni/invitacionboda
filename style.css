@@ -13,8 +13,7 @@
 /* Para pantallas pequeñas: cambia a contain */
 @media (max-width: 768px) {
   .hero {
-    background-size: contain;
-    background-color: #f8f8f8;
+    background-size: cover;
     background-position: top;/* fondo por si no cubre todo */
   }
 }
