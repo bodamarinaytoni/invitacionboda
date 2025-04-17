@@ -21,6 +21,7 @@
 
 .overlay {
   background-color: rgba(255, 255, 255, 0.85);
+  background-position: top;
   padding: 3rem 2rem;
   border-radius: 1rem;
   text-align: center;
