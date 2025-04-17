@@ -1,14 +1,12 @@
 .hero {
-  background-image: url("cabecera1.png"); /* Reemplaza con tu imagen */
-  background-size: cover;         /* Hace que la imagen cubra toda la sección */
-  background-position: center;    /* Centra la imagen */
-  background-repeat: no-repeat;   /* No repite la imagen */
-  background-attachment: fixed;   /* (opcional) efecto parallax en desktop */
-  height: 100vh;                  /* Ocupa el alto de la pantalla */
+  background-image: url("boda-portada.jpg"); /* tu imagen */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh; /* ocupa todo el alto visible */
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative;
 }
 @media (max-width: 600px) {
   .hero {
@@ -46,4 +44,14 @@
   .overlay p {
     font-size: 1.2rem;
   }
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
 }
