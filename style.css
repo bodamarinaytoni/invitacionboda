@@ -58,6 +58,13 @@ html, body {
   color: #555;
 }
 
+.overlay p.especial {
+  font-family: 'Angeletta', sans-serif;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #333;  /* Cambia a un color que combine */
+}
+
 /* Ajustes para dispositivos móviles */
 @media (max-width: 600px) {
   .hero {
