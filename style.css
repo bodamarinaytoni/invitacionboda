@@ -20,12 +20,16 @@
 }
 
 .overlay {
-  background-color: rgba(255, 255, 255, 0.8);
-  padding: 4rem 3rem;           /* ¡Más espacio interno! */
+  background-color: rgba(255, 255, 255, 0.85);
+  padding: 3rem 2rem;
   border-radius: 1rem;
   text-align: center;
-  max-width: 700px;             /* Aumenta el ancho máximo */
-  width: 90%;
+  width: 60%;               /* más alto que ancho */
+  max-width: 500px;
+  min-height: 300px;        /* lo hace más alargado verticalmente */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 }
 
@@ -54,11 +58,13 @@
     font-size: 1.2rem;
   }
 }
-@media (min-width: 1024px) {
+@media (max-width: 600px) {
   .overlay {
-    max-width: 900px;
-    padding: 4rem 5rem;
+    width: 80%;
+    padding: 2rem 1rem;
+    min-height: 250px;
   }
+}
 }
 * {
   margin: 0;
