@@ -11,17 +11,17 @@ html, body {
   overflow-x: hidden;
 }
 
-/* Hero: imagen de fondo con ajuste "contain" en móvil */
+/* Hero: imagen de fondo sin espacios */
 .hero {
   background-image: url("cabecera1.png");
-  background-position: center;
+  background-position: center top; /* Empuja la imagen al inicio */
   background-repeat: no-repeat;
   background-size: cover;  /* Para que cubra la pantalla en PC */
-  height: 100vh;
+  height: 100vh;           /* Asegura que ocupe toda la altura de la pantalla */
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative; /* Asegura que el overlay esté encima de la imagen */
+  position: relative;      /* Asegura que el overlay esté encima */
 }
 
 /* Recuadro blanco semitransparente */
@@ -38,7 +38,8 @@ html, body {
   justify-content: center;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
   position: absolute; /* Overlay encima de la imagen */
-  z-index: 1; /* Asegura que el overlay esté encima */
+  top: 0;             /* Pegado al principio */
+  z-index: 1;         /* Overlay encima */
 }
 
 /* Estilo del título */
@@ -59,7 +60,7 @@ html, body {
 /* Ajustes para dispositivos móviles */
 @media (max-width: 600px) {
   .hero {
-    background-size: contain; /* Ajusta la imagen sin recortarla */
+    background-size: contain; /* Ajusta la imagen sin recortarla en móvil */
     background-position: center center; /* Centra la imagen */
   }
 
