@@ -61,7 +61,7 @@ html, body {
 @media (max-width: 600px) {
   .hero {
     background-size: contain; /* Ajusta la imagen sin recortarla en móvil */
-    background-position: center center; /* Centra la imagen */
+    background-position: center top; /* Centra la imagen */
   }
 
   .overlay {
