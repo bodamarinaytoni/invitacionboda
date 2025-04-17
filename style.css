@@ -1,16 +1,20 @@
+
 .hero {
-  background-image: url("cabecera1.png"); /* tu imagen */
-  background-size: contain;
+  background-image: url("boda-portada.jpg");
   background-position: center;
   background-repeat: no-repeat;
-  height: 100vh; /* ocupa todo el alto visible */
+  background-size: cover; /* por defecto en escritorio */
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-@media (max-width: 600px) {
+
+/* Para pantallas pequeñas: cambia a contain */
+@media (max-width: 768px) {
   .hero {
-    background-position: top; /* o center top, según tu imagen */
+    background-size: contain;
+    background-color: #f8f8f8; /* fondo por si no cubre todo */
   }
 }
 
