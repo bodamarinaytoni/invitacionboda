@@ -1,8 +1,10 @@
 .hero {
-  background-image: url("cabecera1.png"); /* Cambia esto por el nombre real de tu imagen */
-  background-size: cover;
-  background-position: center;
-  height: 100vh; /* toda la pantalla */
+  background-image: url("boda-portada.jpg"); /* Reemplaza con tu imagen */
+  background-size: cover;         /* Hace que la imagen cubra toda la sección */
+  background-position: center;    /* Centra la imagen */
+  background-repeat: no-repeat;   /* No repite la imagen */
+  background-attachment: fixed;   /* (opcional) efecto parallax en desktop */
+  height: 100vh;                  /* Ocupa el alto de la pantalla */
   display: flex;
   align-items: center;
   justify-content: center;
