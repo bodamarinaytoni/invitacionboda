@@ -23,16 +23,17 @@ html, body {
 /* Hero: imagen de fondo sin espacios */
 .hero {
   background-image: url("cabecera1.png");
-  background-position: center top; /* Empuja la imagen al inicio */
+  background-position: center top; /* Centra la imagen */
   background-repeat: no-repeat;
-  background-size: cover;  /* Para que cubra la pantalla en PC */
-  height: 100vh;           /* Asegura que ocupe toda la altura de la pantalla */
+  background-size: cover; /* Asegura que cubra todo el área */
+  height: 100vh; /* 100% de la altura de la ventana */
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative;    /* Asegura que el overlay esté encima */
+  position: relative;
   margin: 0;
   padding: 0;
+  overflow: hidden;
 }
 
 /* Recuadro blanco semitransparente */
@@ -80,38 +81,28 @@ html, body {
 /* Ajustes para dispositivos móviles */
 @media (max-width: 600px) {
   .hero {
-    background-size: contain;
+    background-size: cover;  /* Asegura que la imagen cubra toda la pantalla */
     background-position: center top;
-    height: auto; /* 👈 importante para adaptarse al contenido */
-    overflow: hidden;
-  }
-
-  .overlay {
-    position: relative; /* 👈 importante para que no flote y cree espacio innecesario */
-    margin-top: 0;
-  }
-
-
-  .overlay h1 {
-    font-size: 2rem;
-  }
-
-  .overlay p {
-    font-size: 1.2rem;
-  }
-  
-  .frase {
+    height: 100vh;            /* Mantiene la altura completa */
     margin: 0;
     padding: 0;
   }
-}
-@media (max-width: 768px) {
-  .hero {
-    margin-bottom: 0;
+
+  .overlay {
+    margin-top: 0;  /* Asegura que el overlay esté pegado al inicio */
   }
 
   .frase {
     margin-top: 0;
+  }
+}
+
+/* Ajustes adicionales */
+@media (max-width: 768px) {
+  .hero {
+    background-size: cover;  /* Para pantallas pequeñas también */
+    background-position: center top;
+    height: 100vh;            /* Mantén la altura completa */
   }
 }
 
@@ -122,7 +113,6 @@ html, body {
   padding: 4rem 2rem;
   font-family: 'Lovelace', serif;
   margin: 0;
-  padding: 0;
 }
 
 /* Texto en tres líneas (con saltos de línea en HTML) */
