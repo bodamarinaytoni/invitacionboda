@@ -21,7 +21,9 @@ html, body {
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative;      /* Asegura que el overlay esté encima */
+  position: relative;    /* Asegura que el overlay esté encima */
+   margin: 0;
+  padding: 0;
 }
 
 /* Recuadro blanco semitransparente */
@@ -71,6 +73,8 @@ html, body {
   .hero {
     background-size: contain; /* Ajusta la imagen sin recortarla en móvil */
     background-position: center top; /* Centra la imagen */
+     margin: 0;
+  padding: 0;
   }
 
   .overlay {
@@ -94,6 +98,7 @@ html, body {
   text-align: center;
   padding: 4rem 2rem;
   font-family: 'Cormorant Garamond', serif;
+   margin: 0;
 }
 
 /* Texto en tres líneas (con saltos de línea en HTML) */
