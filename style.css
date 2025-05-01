@@ -11,23 +11,13 @@ html, body {
   overflow-x: hidden;
 }
 
-/* Fuente personalizada */
-@font-face {
-  font-family: 'Lovelace';
-  src: url('fonts/lovelace.woff2') format('woff2'),
-       url('fonts/lovelace.woff') format('woff'),
-       url('fonts/lovelace.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
-
-/* Hero: imagen de fondo */
+/* Hero: imagen de fondo sin espacios */
 .hero {
-  background-image: url("cabecera1.png");
-  background-position: top center;
+  background-image: url("cabecera1.png");  /* Imagen de fondo */
+  background-position: center top;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 70vh;
+  height: 70vh;  /* Ajusta la altura de la cabecera */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -66,6 +56,7 @@ html, body {
   margin-bottom: 1rem;
 }
 
+/* Estilo de los párrafos */
 .overlay p {
   font-size: 1.5rem;
   margin: 0.5rem 0;
@@ -82,9 +73,9 @@ html, body {
 /* Ajustes para móviles */
 @media (max-width: 600px) {
   .hero {
+    background-size: contain;
+    background-position: center top;
     height: 70vh;
-    background-size: cover;
-    background-position: top center;
   }
 
   .overlay {
@@ -102,7 +93,7 @@ html, body {
   }
 }
 
-/* Frase */
+/* Frase con fondo verde */
 .frase {
   background-color: #303f1d;
   color: white;
@@ -124,7 +115,7 @@ html, body {
 
 /* Cuenta atrás */
 .countdown {
-  background-image: url("fondo-gris.png");
+  background-image: url("fondo-gris.png"); /* Imagen de fondo */
   background-position: center;
   background-size: cover;
   text-align: center;
@@ -163,12 +154,6 @@ html, body {
   font-weight: bold;
 }
 
-.countdown-image {
-  margin-top: 1rem;
-  width: 100%;
-  max-width: 300px;
-}
-
 /* Responsivo para cuenta atrás */
 @media (max-width: 600px) {
   .countdown h2 {
@@ -181,9 +166,5 @@ html, body {
 
   .time-unit {
     margin: 1rem 0;
-  }
-
-  .countdown-image {
-    max-width: 80%;
   }
 }
