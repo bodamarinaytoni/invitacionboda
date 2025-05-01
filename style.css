@@ -174,8 +174,9 @@ html, body {
 
 .countdown h2 {
   font-family: 'Great Vibes', cursive;
-  font-size: 42.6px;
-  color: #800000;
+  font-size: 70px; /* ajusta según tu preferencia */
+  font-weight: normal; /* asegúrate que no esté en bold */
+  color: #000000;
   margin-bottom: 2rem;
 }
 
@@ -207,6 +208,15 @@ html, body {
   font-size: 0.9rem;
   margin: 0;
 }
+.countdown-image {
+  margin-top: 1rem;
+  width: 100%;
+  max-width: 125px; /* antes estaba en 300px */
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 
 /* Móviles */
 @media (max-width: 600px) {
@@ -225,5 +235,70 @@ html, body {
   .time-unit p {
     font-size: 0.75rem;
   }
+}
+
+/* Sección de la ceremonia */
+.ceremonia {
+  background-color: white;
+  text-align: center;
+  padding: 0.5rem 1rem 3rem 1rem; /* 0 arriba, 3rem abajo */
+}
+
+
+.ceremonia-section {
+  background-color: white;
+  padding-top: 0;
+  margin-top: 0;
+  text-align: center;
+}
+
+.ceremonia-contenido {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.lazo-img {
+  width: 280px;
+  height: auto;
+  margin: 0 auto;
+  display: block;
+  padding-top: 0;
+}
+
+.titulo-ceremonia {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.5rem;
+  font-weight: normal;
+  margin-bottom: 0.5rem;
+  color: #303f1d;
+}
+
+.ubicacion-ceremonia {
+  font-family: 'Great Vibes', cursive;
+  font-size: 2rem;
+  color: #303f1d;
+  margin-bottom: 0.5rem;
+}
+
+.direccion-ceremonia{
+  font-family: 'Public Sans', sans-serif;
+  font-size: 1rem;
+  color: #303f1d;
+  margin: 0.2rem 0;
+}
+
+.hora-ceremonia {
+  font-family: 'Public Sans', sans-serif;
+  font-size: 3rem;
+  color: #303f1d;
+  margin: 0.2rem 0;
+}
+
+.rectangulo {
+  margin-top: 2rem;
+  height: 40px;
+  background-color: #9aa77a;
+  width: 100%;
+  border-radius: 0.5rem;
 }
 
