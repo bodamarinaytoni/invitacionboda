@@ -670,3 +670,27 @@ html, body {
   color: #303f1d;
   font-weight: normal;
 }
+
+/*Música*/
+
+.boton-musica {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  background-color: #9aa77a;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.boton-musica:hover {
+  background-color: #7f8e5f;
+  transform: scale(1.1);
+}
