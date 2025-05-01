@@ -11,13 +11,23 @@ html, body {
   overflow-x: hidden;
 }
 
+/* Fuente personalizada */
+@font-face {
+  font-family: 'Lovelace';
+  src: url('fonts/lovelace.woff2') format('woff2'),
+       url('fonts/lovelace.woff') format('woff'),
+       url('fonts/lovelace.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 /* Hero: imagen de fondo sin espacios */
 .hero {
-  background-image: url("cabecera1.png");  /* Imagen de fondo */
+  background-image: url('cabecera1.png');
   background-position: center top;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 70vh;  /* Ajusta la altura de la cabecera */
+  height: 70vh; /* La cabecera ocupa el 70% de la altura */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -30,12 +40,12 @@ html, body {
 /* Recuadro blanco semitransparente */
 .overlay {
   background-color: rgba(255, 255, 255, 0.85);
-  padding: 3rem 2rem;
+  padding: 3rem 2.5rem;  /* Aumento el padding a 2.5rem */
   border-radius: 1rem;
   text-align: center;
   width: 75%;
   max-width: 500px;
-  min-height: 250px;
+  min-height: 400px; /* Aumento la altura mínima a 400px */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -70,52 +80,83 @@ html, body {
   color: #333;
 }
 
-/* Ajustes para móviles */
+/* Ajustes para dispositivos móviles */
 @media (max-width: 600px) {
+  /* Ajustes a la cabecera */
   .hero {
-    background-size: contain;
+    background-size: cover;
     background-position: center top;
-    height: 70vh;
+    height: 70vh; /* Cabecera al 70% de la altura en dispositivos móviles */
   }
 
+  /* Ajustes a la imagen de la cabecera */
+  .hero img {
+    width: 100%;
+    height: auto;
+  }
+
+  /* Ajustes para el overlay */
   .overlay {
-    width: 90%;
-    padding: 2rem 1.5rem;
-    min-height: 200px;
+    width: 90%;  /* Asegura que el overlay sea un 90% del ancho en móviles */
+    min-height: 250px;  /* Reduce la altura mínima */
+    padding: 2rem 2rem;  /* Ajusta el padding */
+    margin-top: 0; /* Elimina el espacio extra en la parte superior */
   }
 
   .overlay h1 {
-    font-size: 2rem;
+    font-size: 2rem; /* Reduce el tamaño del título en móviles */
   }
 
   .overlay p {
-    font-size: 1.2rem;
+    font-size: 1.2rem;  /* Reduce el tamaño del texto */
   }
 }
+
+/* Estilo del círculo con flechas hacia abajo */
+.scroll-indicator {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.circle {
+  width: 50px;
+  height: 50px;
+  border: 2px solid #333;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  animation: expandCircle 1s infinite;  /* Animación para expandir el círculo */
+}
+
 
 /* Frase con fondo verde */
 .frase {
   background-color: #303f1d;
   color: white;
   text-align: center;
-  padding: 2rem 1rem;
+  padding: 1rem 1rem; /* Reducir el padding para que ocupe menos espacio */
   font-family: 'Lovelace', serif;
+  margin: 0; /* Asegura que no haya margen adicional */
+  height: auto; /* Asegura que la altura se ajuste al contenido */
 }
 
 .frase p {
   font-size: 17.3px;
-  line-height: 1.6;
-  margin-bottom: 1.5rem;
+  line-height: 1;
+  margin-bottom: 1rem; /* Reducir el espacio entre los párrafos */
 }
 
 .corazon i {
-  font-size: 2.5rem;
+  font-size: 1.5rem;
   color: white;
 }
 
+
 /* Cuenta atrás */
 .countdown {
-  background-image: url("fondo-gris.png"); /* Imagen de fondo */
+  background-image: url("fondo-gris.png");
   background-position: center;
   background-size: cover;
   text-align: center;
@@ -141,30 +182,48 @@ html, body {
 .countdown-timer {
   display: flex;
   justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap; /* No permite saltar de línea */
+  overflow-x: auto; /* Permite hacer scroll si no caben */
+  gap: 1rem;
   margin-bottom: 1rem;
+  padding: 0 1rem;
 }
 
 .time-unit {
-  margin: 0 1rem;
+  flex: 1 1 auto;
+  min-width: 60px;
+  max-width: 80px;
+  text-align: center;
   color: #800000;
 }
 
 .time-unit span {
-  font-size: 3rem;
+  font-size: 2rem; /* Tamaño más compacto */
   font-weight: bold;
 }
 
-/* Responsivo para cuenta atrás */
+.time-unit p {
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+/* Móviles */
 @media (max-width: 600px) {
   .countdown h2 {
-    font-size: 32px;
-  }
-
-  .countdown-timer {
-    flex-direction: column;
+    font-size: 24px;
   }
 
   .time-unit {
-    margin: 1rem 0;
+    min-width: 55px;
+  }
+
+  .time-unit span {
+    font-size: 1.8rem;
+  }
+
+  .time-unit p {
+    font-size: 0.75rem;
   }
 }
+
