@@ -80,17 +80,17 @@ html, body {
 /* Ajustes para dispositivos móviles */
 @media (max-width: 600px) {
   .hero {
-    background-size: contain; /* Ajusta la imagen sin recortarla en móvil */
-    background-position: center top; /* Centra la imagen */
-    margin: 0;
-    padding: 0;
+    background-size: contain;
+    background-position: center top;
+    height: auto; /* 👈 importante para adaptarse al contenido */
+    overflow: hidden;
   }
 
   .overlay {
-    width: 90%;
-    padding: 2rem 1.5rem;
-    min-height: 250px;
+    position: relative; /* 👈 importante para que no flote y cree espacio innecesario */
+    margin-top: 0;
   }
+
 
   .overlay h1 {
     font-size: 2rem;
@@ -101,8 +101,8 @@ html, body {
   }
   
   .frase {
-    margin: 0 !important;
-    padding: 0 !important;
+    margin: 0;
+    padding: 0;
   }
 }
 @media (max-width: 768px) {
@@ -122,6 +122,7 @@ html, body {
   padding: 4rem 2rem;
   font-family: 'Lovelace', serif;
   margin: 0;
+  padding: 0;
 }
 
 /* Texto en tres líneas (con saltos de línea en HTML) */
