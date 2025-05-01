@@ -121,3 +121,70 @@ html, body {
   font-size: 3rem;
   color: white;
 }
+
+/* Estilos generales para la sección de cuenta atrás */
+.countdown {
+  background-image: url("fondo-gris.png");
+  background-position: center;
+  background-size: cover;
+  text-align: center;
+  padding: 1rem; /* Padding para alejar el contenido de los bordes */
+}
+
+.countdown-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  color: white;
+}
+
+.countdown h2 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 42.6px;
+  color: #800000; /* Color granate */
+  margin-bottom: 2rem;
+}
+
+.countdown-timer {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.time-unit {
+  margin: 0 1rem;
+  color: #800000; /* Color granate */
+}
+
+.time-unit span {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.countdown-image {
+  margin-top: 1rem;
+  width: 100%;
+  max-width: 300px;
+}
+
+/* Estilos para la cuenta atrás */
+@media (max-width: 600px) {
+  .countdown h2 {
+    font-size: 32px; /* Ajuste en tamaño de fuente en móviles */
+  }
+
+  .countdown-timer {
+    flex-direction: column;
+  }
+
+  .time-unit {
+    margin: 1rem 0;
+  }
+
+  .countdown-image {
+    max-width: 80%; /* Ajuste el tamaño de la imagen en dispositivos móviles */
+  }
+}
+
