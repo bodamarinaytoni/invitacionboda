@@ -87,3 +87,23 @@ html, body {
     font-size: 1.2rem;
   }
 }
+
+.frase {
+  background-color: #303f1d;
+  color: white;
+  text-align: center;
+  padding: 4rem 2rem;
+  font-family: 'Cormorant Garamond', serif;
+}
+
+/* Texto en tres líneas (con saltos de línea en HTML) */
+.frase p {
+  font-size: 2rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+/* Estilo del corazón */
+.corazon {
+  font-size: 3rem;
+}
