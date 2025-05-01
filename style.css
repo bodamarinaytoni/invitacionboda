@@ -91,6 +91,15 @@ html, body {
     font-size: 1.2rem;
   }
 }
+@media (max-width: 768px) {
+  .hero {
+    margin-bottom: 0;
+  }
+
+  .frase {
+    margin-top: 0;
+  }
+}
 
 .frase {
   background-color: #303f1d;
