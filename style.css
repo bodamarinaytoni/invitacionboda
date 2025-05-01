@@ -14,13 +14,12 @@ html, body {
 }
 
 /* Hero: imagen de fondo sin espacios */
-/* Hero: imagen de fondo sin espacios */
 .hero {
   background-image: url("cabecera1.png");
   background-position: center top; /* Empuja la imagen al inicio */
   background-repeat: no-repeat;
   background-size: cover;  /* Para que cubra la pantalla en PC */
-  height: 50vh;           /* Asegura que ocupe el 75% de la altura de la pantalla */
+  height: 50vh;           /* Asegura que ocupe el 50% de la altura de la pantalla */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -77,7 +76,7 @@ html, body {
   .hero {
     background-size: contain; /* Ajusta la imagen sin recortarla en móvil */
     background-position: center top; /* Centra la imagen */
-    height: 50vh; /* Mantiene el 75% en móviles */
+    height: 50vh; /* Mantiene el 50% en móviles */
     margin: 0;
     padding: 0;
   }
@@ -129,8 +128,10 @@ html, body {
   background-size: cover;
   text-align: center;
   padding: 1rem; /* Padding para alejar el contenido de los bordes */
+  margin: 0;  /* Elimina márgenes */
 }
 
+/* Contenido de la cuenta atrás */
 .countdown-content {
   display: flex;
   flex-direction: column;
@@ -187,4 +188,3 @@ html, body {
     max-width: 80%; /* Ajuste el tamaño de la imagen en dispositivos móviles */
   }
 }
-
