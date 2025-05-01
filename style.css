@@ -238,13 +238,14 @@ html, body {
 }
 
 /* Sección de la ceremonia */
+.celebracion,
 .ceremonia {
   background-color: white;
   text-align: center;
   padding: 0.5rem 1rem 3rem 1rem; /* 0 arriba, 3rem abajo */
 }
 
-
+.celebracion-section,
 .ceremonia-section {
   background-color: white;
   padding-top: 0;
@@ -252,11 +253,13 @@ html, body {
   text-align: center;
 }
 
+.celebracion-contenido,
 .ceremonia-contenido {
   max-width: 600px;
   margin: 0 auto;
 }
 
+.celebracion-img,
 .lazo-img {
   width: 280px;
   height: auto;
@@ -265,6 +268,7 @@ html, body {
   padding-top: 0;
 }
 
+.titulo-celebracion,
 .titulo-ceremonia {
   font-family: 'Cormorant Garamond', serif;
   font-size: 2.5rem;
@@ -273,6 +277,7 @@ html, body {
   color: #303f1d;
 }
 
+.ubicacion-celebracion,
 .ubicacion-ceremonia {
   font-family: 'Great Vibes', cursive;
   font-size: 2rem;
@@ -280,6 +285,7 @@ html, body {
   margin-bottom: 0.5rem;
 }
 
+.direccion-celebracion,
 .direccion-ceremonia{
   font-family: 'Public Sans', sans-serif;
   font-size: 1rem;
@@ -287,6 +293,7 @@ html, body {
   margin: 0.2rem 0;
 }
 
+.hora-celebracion,
 .hora-ceremonia {
   font-family: 'Public Sans', sans-serif;
   font-size: 3rem;
@@ -294,11 +301,39 @@ html, body {
   margin: 0.2rem 0;
 }
 
+/* Rectángulo con enlace */
 .rectangulo {
   margin-top: 2rem;
-  height: 40px;
+  height: 60px; /* Aumenta la altura del rectángulo */
+  width: 200px; /* Reducir el largo del rectángulo */
   background-color: #9aa77a;
-  width: 100%;
-  border-radius: 0.5rem;
+  border-radius: 30px; /* Bordes redondeados */
+  display: flex;
+  justify-content: center; /* Centrar el enlace dentro del rectángulo */
+  align-items: center; /* Centrado vertical */
+  position: relative;
+  margin-left: auto;
+  margin-right: auto; /* Centrar el rectángulo horizontalmente */
 }
 
+.rectangulo a {
+  font-family: 'Belleza', sans-serif;
+  font-size: 2rem; /* Ajustar el tamaño del texto */
+  color: #303f1d;; /* Color del texto */
+  text-decoration: none; /* Elimina el subrayado predeterminado */
+  position: relative;
+  display: inline-block;
+  text-align: center; /* Centrar el texto */
+  box-sizing: border-box; /* Para que el padding no afecte el ancho total */
+}
+
+/* Crear el subrayado estilizado justo debajo del enlace */
+.rectangulo a::after {
+  content: "";
+  position: absolute;
+  bottom: -2px; /* Colocarlo justo debajo del texto con un pequeño espacio */
+  left: 0;
+  width: 100%; /* Asegura que el subrayado se extienda a lo largo del texto */
+  height: 2px; /* Grosor de la línea */
+  background-color: #303f1d;; /* Color del subrayado */
+}
