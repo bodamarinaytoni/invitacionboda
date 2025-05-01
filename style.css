@@ -11,22 +11,13 @@ html, body {
   overflow-x: hidden;
 }
 
-@font-face {
-  font-family: 'Lovelace';
-  src: url('fonts/lovelace.woff2') format('woff2'),
-       url('fonts/lovelace.woff') format('woff'),
-       url('fonts/lovelace.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
-
-/* Hero: imagen de fondo sin espacios */
+/* Hero: imagen de fondo ajustada */
 .hero {
   background-image: url("cabecera1.png");
-  background-position: center top; /* Centra la imagen */
+  background-position: center center; /* Centra la imagen */
   background-repeat: no-repeat;
-  background-size: cover; /* Asegura que cubra todo el área */
-  height: 100vh; /* 100% de la altura de la ventana */
+  background-size: contain; /* Asegura que la imagen no se recorte */
+  height: 100vh; /* Asegura que ocupe toda la altura de la pantalla */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -81,8 +72,8 @@ html, body {
 /* Ajustes para dispositivos móviles */
 @media (max-width: 600px) {
   .hero {
-    background-size: cover;  /* Asegura que la imagen cubra toda la pantalla */
-    background-position: center top;
+    background-size: contain;  /* Asegura que la imagen no se recorte */
+    background-position: center center;
     height: 100vh;            /* Mantiene la altura completa */
     margin: 0;
     padding: 0;
@@ -100,8 +91,8 @@ html, body {
 /* Ajustes adicionales */
 @media (max-width: 768px) {
   .hero {
-    background-size: cover;  /* Para pantallas pequeñas también */
-    background-position: center top;
+    background-size: contain;  /* Para pantallas pequeñas también */
+    background-position: center center;
     height: 100vh;            /* Mantén la altura completa */
   }
 }
