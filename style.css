@@ -19,7 +19,7 @@ html, body {
   background-position: center top; /* Empuja la imagen al inicio */
   background-repeat: no-repeat;
   background-size: cover;  /* Para que cubra la pantalla en PC */
-  height: 50vh;           /* Asegura que ocupe el 50% de la altura de la pantalla */
+  height: 70vh;           /* Asegura que ocupe el 70% de la altura de la pantalla */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -28,6 +28,7 @@ html, body {
   padding: 0; /* Elimina padding */
   overflow: hidden; /* Asegura que no haya desbordes */
 }
+
 
 /* Recuadro blanco semitransparente */
 .overlay {
