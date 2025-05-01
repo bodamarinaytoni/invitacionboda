@@ -97,7 +97,17 @@ html, body {
     font-size: 1.2rem;
   }
 }
+@media (max-width: 768px) {
+  .hero {
+    background-size: 80% auto;  /* La imagen ocupará el 80% del ancho en pantallas más pequeñas */
+  }
+}
 
+@media (max-width: 480px) {
+  .hero {
+    background-size: 90% auto;  /* La imagen ocupará el 90% del ancho en dispositivos móviles pequeños */
+  }
+}
 /* Elimina el espacio blanco entre las secciones */
 .frase {
   background-color: #303f1d;
