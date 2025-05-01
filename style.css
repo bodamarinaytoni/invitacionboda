@@ -337,3 +337,52 @@ html, body {
   height: 2px; /* Grosor de la línea */
   background-color: #303f1d;; /* Color del subrayado */
 }
+
+.itinerario {
+  background-image: url("images/itinerario/fondo-gris-largo.png");
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+  padding: 3rem 1rem;
+  color: #303f1d;
+}
+
+.titulo-itinerario {
+  font-family: 'Great Vibes', cursive;
+  font-size: 3rem;
+  margin-bottom: 2rem;
+  font-weight: normal;
+}
+
+.evento {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.evento-img {
+  width: 100px;
+  height: auto;
+  margin-bottom: 1rem;
+}
+
+.hora-evento {
+  font-family: 'Belleza', sans-serif;
+  font-size: 2rem;
+  margin: 0.5rem 0;
+  color: #000000;
+}
+
+.nombre-evento {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: #000000;
+}
+
+.linea-vertical {
+  width: 2px;
+  height: 2cm;
+  background-color: #000000;
+  margin: 0 auto;
+}
