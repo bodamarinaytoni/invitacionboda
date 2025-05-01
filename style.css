@@ -23,7 +23,7 @@ html, body {
 
 /* Hero: imagen de fondo sin espacios */
 .hero {
-  background-image: url("cabecera1.png");
+  background-image: red;
   background-position: center top;
   background-repeat: no-repeat;
   background-size: cover;
