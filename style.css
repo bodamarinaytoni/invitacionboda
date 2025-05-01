@@ -675,22 +675,15 @@ html, body {
 
 .boton-musica {
   position: fixed;
-  bottom: 20px;
+  top: 20px;
   right: 20px;
-  width: 50px;
-  height: 50px;
-  background-color: #9aa77a;
-  color: white;
+  z-index: 1000;
+  background-color: #ffffff;
   border: none;
   border-radius: 50%;
-  font-size: 1.5rem;
+  padding: 12px;
+  font-size: 20px;
   cursor: pointer;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  z-index: 1000;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
 }
 
-.boton-musica:hover {
-  background-color: #7f8e5f;
-  transform: scale(1.1);
-}
