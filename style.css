@@ -18,8 +18,8 @@ html, body {
   background-image: url("cabecera1.png");
   background-position: center top; /* Empuja la imagen al inicio */
   background-repeat: no-repeat;
-  background-size: cover;  /* Para que cubra la pantalla en PC */
-  height: 70vh;           /* Asegura que ocupe el 70% de la altura de la pantalla */
+  background-size: 70% auto;  /* La imagen ocupará el 70% del ancho y ajustará la altura automáticamente */
+  height: 100vh;           /* Asegura que ocupe toda la altura de la pantalla */
   display: flex;
   align-items: center;
   justify-content: center;
