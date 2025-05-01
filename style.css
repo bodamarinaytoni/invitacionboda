@@ -31,7 +31,7 @@ html, body {
   align-items: center;
   justify-content: center;
   position: relative;    /* Asegura que el overlay esté encima */
-   margin: 0;
+  margin: 0;
   padding: 0;
 }
 
@@ -82,8 +82,8 @@ html, body {
   .hero {
     background-size: contain; /* Ajusta la imagen sin recortarla en móvil */
     background-position: center top; /* Centra la imagen */
-     margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
   }
 
   .overlay {
@@ -98,6 +98,11 @@ html, body {
 
   .overlay p {
     font-size: 1.2rem;
+  }
+  
+  .frase {
+    margin: 0 !important;
+    padding: 0 !important;
   }
 }
 @media (max-width: 768px) {
@@ -115,8 +120,8 @@ html, body {
   color: white;
   text-align: center;
   padding: 4rem 2rem;
-   font-family: 'Lovelace', serif;
-   margin: 0;
+  font-family: 'Lovelace', serif;
+  margin: 0;
 }
 
 /* Texto en tres líneas (con saltos de línea en HTML) */
