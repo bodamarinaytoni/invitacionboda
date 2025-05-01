@@ -3,53 +3,57 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Fuente elegante -->
+
+  <!-- Fuentes -->
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond&display=swap" rel="stylesheet">
   <link href="https://db.onlinewebfonts.com/c/9190b99bc6c97006796d885cf0a226c4?family=Angeletta+W04+Regular" rel="stylesheet">
-  <!-- Emoti -->
+
+  <!-- Iconos -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <!-- Countdown -->
-  <script src="countdown.js"></script>
 
-  <!-- Tu CSS -->
+  <!-- Estilos y JS -->
   <link rel="stylesheet" href="style.css" />
-  
- <header class="hero">
-  <img src="cabecera1.png" alt="Cabecera" class="hero-img">
-  <div class="overlay">
-    <h1>¡Nos casamos!</h1>
-    <p class="especial">Marina<br> y <br>Toni</p>
-    <p>20 de diciembre de 2025</p>
-  </div>
-</header>
-<section class="frase">
-  <p>A veces lo que empieza<br>como una locura<br>se convierte en lo mejor de tu vida</p>
-  <div class="corazon"><i class="fas fa-heart"></i></div>
-</section>
-<section class="countdown">
-  <div class="countdown-content">
-    <h2>Cuánto falta para la boda</h2>
-    <div id="countdown-timer" class="countdown-timer">
-      <div class="time-unit">
-        <span id="days"></span>
-        <p>Días</p>
-      </div>
-      <div class="time-unit">
-        <span id="hours"></span>
-        <p>Horas</p>
-      </div>
-      <div class="time-unit">
-        <span id="minutes"></span>
-        <p>Minutos</p>
-      </div>
-      <div class="time-unit">
-        <span id="seconds"></span>
-        <p>Segundos</p>
-      </div>
-    </div>
-    <img src="girnalda.png" alt="Decoración" class="countdown-image">
-  </div>
-</section>
+  <script src="countdown.js" defer></script>
+</head>
 
+<body>
+  <header class="hero">
+    <img src="cabecera1.png" alt="Cabecera" class="hero-img">
+    <div class="overlay">
+      <h1>¡Nos casamos!</h1>
+      <p class="especial">Marina<br> y <br>Toni</p>
+      <p>20 de diciembre de 2025</p>
+    </div>
+  </header>
+
+  <section class="frase">
+    <p>A veces lo que empieza<br>como una locura<br>se convierte en lo mejor de tu vida</p>
+    <div class="corazon"><i class="fas fa-heart"></i></div>
+  </section>
+
+  <section class="countdown">
+    <div class="countdown-content">
+      <h2>Cuánto falta para la boda</h2>
+      <div id="countdown-timer" class="countdown-timer">
+        <div class="time-unit">
+          <span id="days"></span>
+          <p>Días</p>
+        </div>
+        <div class="time-unit">
+          <span id="hours"></span>
+          <p>Horas</p>
+        </div>
+        <div class="time-unit">
+          <span id="minutes"></span>
+          <p>Minutos</p>
+        </div>
+        <div class="time-unit">
+          <span id="seconds"></span>
+          <p>Segundos</p>
+        </div>
+      </div>
+      <img src="girnalda.png" alt="Decoración" class="countdown-image">
+    </div>
+  </section>
 </body>
 </html>
