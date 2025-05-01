@@ -104,6 +104,7 @@ html, body {
 }
 
 /* Estilo del corazón */
-.corazon {
+.corazon i {
   font-size: 3rem;
+  color: white;
 }
