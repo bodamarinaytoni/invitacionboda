@@ -1,30 +1,27 @@
-// Fecha del evento
-const eventDate = new Date("Dec 20, 2025 00:00:00").getTime();
+document.addEventListener("DOMContentLoaded", function () {
+  const countdownDate = new Date("2025-12-20T11:00:00").getTime();
 
-// Actualiza el contador cada segundo
-const x = setInterval(function() {
+  function updateCountdown() {
+    const now = new Date().getTime();
+    const distance = countdownDate - now;
 
-  // Obtiene la fecha y hora actual
-  const now = new Date().getTime();
+    if (distance < 0) {
+      document.getElementById("countdown-timer").innerHTML = "<p>¡Ya es el gran día!</p>";
+      return;
+    }
 
-  // Calcula la diferencia entre la fecha del evento y la fecha actual
-  const distance = eventDate - now;
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-  // Cálculos de tiempo
-  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-  // Muestra los resultados
-  document.getElementById("days").innerHTML = days;
-  document.getElementById("hours").innerHTML = hours;
-  document.getElementById("minutes").innerHTML = minutes;
-  document.getElementById("seconds").innerHTML = seconds;
-
-  // Si la cuenta atrás llega a cero, muestra un mensaje
-  if (distance < 0) {
-    clearInterval(x);
-    document.getElementById("countdown-timer").innerHTML = "¡Es el gran día!";
+    // Añade ceros delante si es necesario
+    document.getElementById("days").textContent = days.toString().padStart(2, "0");
+    document.getElementById("hours").textContent = hours.toString().padStart(2, "0");
+    document.getElementById("minutes").textContent = minutes.toString().padStart(2, "0");
+    document.getElementById("seconds").textContent = seconds.toString().padStart(2, "0");
   }
-}, 1000);
+
+  updateCountdown(); // Llama inmediatamente
+  setInterval(updateCountdown, 1000); // Actualiza cada segundo
+});
