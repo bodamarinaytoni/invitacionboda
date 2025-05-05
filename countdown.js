@@ -115,7 +115,7 @@ document.addEventListener("DOMContentLoaded", function () {
       mensaje: document.querySelector('textarea[name="mensaje"]')?.value || ""
     };
 
-    fetch("https://script.google.com/macros/s/AKfycbyHVveehZ4Qkzbvwn-mhQFG9ivs0NnjSVrnqZwh5IUI3L2uWKsfU0mAJkxdNEW3jRTIOg/exec", { // REEMPLAZA con tu URL
+    fetch("https://script.google.com/macros/s/AKfycbxtLQcXhxM1cU3K1O_0W2SGT6o93wZIV01ia4L62o8Ga3n8KdEZ54zhFV0AjS_v5gL0Ig/exec", { // REEMPLAZA con tu URL
       method: "POST",
       body: JSON.stringify(data),
       headers: {
