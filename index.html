@@ -11,6 +11,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Public+Sans&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Belleza&display=swap" rel="stylesheet">
 
+  <!-- excel -->
+  <script src="https://apis.google.com/js/api.js"></script>
 
 
   <!-- Iconos -->
@@ -65,6 +67,7 @@
       <img src="girnalda.png" alt="Decoración" class="countdown-image">
     </div>
   </section>
+
   <section class="ceremonia">
     <div class="ceremonia-contenido">
       <img src="union.png" alt="Lazo decorativo" class="lazo-img">
@@ -77,6 +80,7 @@
       </div>
     </div>
   </section>
+
   <section class="celebracion">
     <div class="celebracion-contenido">
       <img src="celebracion.png" alt="Copas" class="celebracion-img">
@@ -89,6 +93,7 @@
       </div>
     </div>
   </section>
+
   <section class="itinerario">
     <h2 class="titulo-itinerario">Itinerario</h2>
     <div class="evento">
@@ -132,6 +137,7 @@
       <p class="nombre-evento">Fin de fiesta</p>
     </div>
   </section>
+
   <section class="autobus">
     <h2 class="titulo-autobus">Servicio de autobús</h2>
     <img src="auto.png" alt="Autobús" class="imagen-autobus" />
@@ -140,7 +146,8 @@
     <p class="horario">Vuelta: 23:00h</p>
     <p class="texto-info">A la vuelta, el autobús saldrá del restaurante y hará una parada en Vila-real (Lluïsos) y continuará hacia Castellón donde hará dos paradas (Av. Valencia y Plaza Fadrell)</p>
     <img src="girnalda3.png" alt="deco" class="imagen-autobus" />
-  </section> 
+  </section>
+
   <section class="dress">
     <img src="dress.png" alt="Dress" class="imagen-dress" />
     <h2 class="titulo-dress">Dress Code</h2>
@@ -150,6 +157,7 @@
     <img src="etiqueta.png" alt="Dress" class="imagen-dress" />
     <p class="texto-dressvestido">Por favor, dejad el color blanco y similares para la novia.</p>
   </section>
+
   <section class="regalo">
     <img src="girnalda5.png" alt="Decoración regalo" class="regalo-img" />
     <h2 class="titulo-regalo">Regalo</h2>
@@ -160,18 +168,78 @@
       ES30 0049 5963 1527 1607 9932
     </p>
   </section>
+
   <section class="asistencia">
     <h2 class="titulo-asistencia">Asistencia</h2>
+  
+    <form id="formulario-asistencia" class="formulario-asistencia" target="_blank">
+      
+      <!-- Pregunta 1 -->
+      <label>¿Asistirás a la boda? *</label><br>
+      <label>
+        <input type="radio" name="asistencia" value="si" required>
+        Sí
+      </label>
+      <label>
+        <input type="radio" name="asistencia" value="no" required>
+        No
+      </label>
+  
+      <!-- Si NO asiste -->
+      <div id="no-asiste-campo" style="display: none;">
+        <label>Nombre y apellidos de los invitados que no asistirán *</label>
+        <input type="text" name="nombres_no" id="nombres_no">
+      </div>
+  
+      <!-- Si SÍ asiste -->
+      <div id="si-asiste-campos" style="display: none;">
+        <!-- Pregunta 2 -->
+        <label>Nombre y apellidos de los invitados *</label>
+        <input type="text" name="nombres_si" id="nombres_si">
+  
+        <!-- Pregunta 3 -->
+        <label>¿Alguna alergia o necesidad alimentaria?</label>
+        <input type="text" name="alergia">
+  
+        <!-- Pregunta 4 -->
+        <label>¿Necesitas autobús? *</label><br>
+        <label>
+          <input type="radio" name="bus" value="si">
+          Sí
+        </label>
+        <label>
+          <input type="radio" name="bus" value="no">
+          No
+        </label>
+  
+        <!-- Pregunta 5 -->
+        <div id="plazas-bus" style="display: none;">
+          <label>Número de plazas necesarias *</label>
+          <input type="number" name="plazas" id="plazas" min="1">
+        </div>
+  
+        <!-- Pregunta 6 -->
+        <label>¡Dinos una canción!</label>
+        <input type="text" name="cancion">
+  
+        <!-- Pregunta 7 -->
+        <label>¿Quieres dejarnos un mensaje?</label>
+        <textarea name="mensaje"></textarea>
+      </div>
+  
+      <button type="submit" id="enviar-asistencia">Enviar</button>
+    </form>
   </section>
+
   <section class="hotel">
     <!-- Imagen de fondo -->
     <img src="noche.png" alt="Imagen del hotel" class="hotel-img">
-  
+
     <!-- Texto introductorio -->
     <p class="hotel-intro">¿Te quedas a dormir?</p>
-  
+
     <p class="hotel-description">¡Genial! Porque también tenemos un plan para los que queréis quedaros. Te recomendamos los siguientes hoteles.</p>
-  
+
     <!-- Tres recuadros con información del hotel -->
     <div class="hotel-info">
       <div class="hotel-box">
@@ -191,11 +259,13 @@
       </div>
     </div>
   </section>
+
   <section class="footer">
     <h2 class="texto-footer">Gracias por acompañarnos en<br> este día tan especial para<br> nosotros</h2>
   </section>
+
   <audio id="musica" autoplay loop>
-    <source src="musica.mp3" type="audio/mpeg">
+    <source src="cancion.mp3" type="audio/mpeg">
     Tu navegador no soporta el audio.
   </audio>
   
