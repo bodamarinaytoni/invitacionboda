@@ -46,107 +46,135 @@ document.addEventListener("DOMContentLoaded", function () {
   const form = document.getElementById("formulario-asistencia");
   const asistenciaRadios = form.elements["asistencia"];
   const busRadios = form.elements["bus"];
-
+  
   const noAsisteCampo = document.getElementById("no-asiste-campo");
   const siAsisteCampos = document.getElementById("si-asiste-campos");
   const plazasBusCampo = document.getElementById("plazas-bus");
-
+  
   const nombresNo = document.getElementById("nombres_no");
   const nombresSi = document.getElementById("nombres_si");
   const plazasInput = document.getElementById("plazas");
 
-  function validarFormulario(e) {
-    let valido = true;
-
+  const botonEnviar = document.getElementById("enviar-asistencia");
+  const formFields = document.querySelectorAll('#formulario-asistencia input, #formulario-asistencia select, #formulario-asistencia textarea');
+  formFields.forEach(field => {
+    field.setAttribute('autocomplete', 'off');
+  });
+  
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+  
     const asistencia = form.elements["asistencia"].value;
-    if (!asistencia) return e.preventDefault();
-
+    const busSeleccionado = form.elements["bus"].value;
+  
+    // Validaciones
+    if (!asistencia) {
+      alert("Por favor, indica si asistirás.");
+      return;
+    }
+  
     if (asistencia === "no") {
       if (nombresNo.value.trim() === "") {
-        valido = false;
         alert("Por favor, introduce los nombres de los que no asistirán.");
-        e.preventDefault();
+        return;
       }
     }
-
+  
     if (asistencia === "si") {
       if (nombresSi.value.trim() === "") {
-        valido = false;
         alert("Por favor, introduce los nombres de los asistentes.");
-        e.preventDefault();
+        return;
       }
-
-      const busSeleccionado = form.elements["bus"].value;
+  
       if (!busSeleccionado) {
-        valido = false;
         alert("Por favor, indica si necesitas autobús.");
-        e.preventDefault();
+        return;
       }
-
+  
       if (busSeleccionado === "si" && (plazasInput.value === "" || parseInt(plazasInput.value) < 1)) {
-        valido = false;
         alert("Introduce el número de plazas de autobús.");
-        e.preventDefault();
+        return;
       }
     }
-  }
-
-  form.addEventListener("submit", validarFormulario);
-
-  form.addEventListener("change", () => {
-    const asistencia = form.elements["asistencia"].value;
-    const bus = form.elements["bus"].value;
-
-    noAsisteCampo.style.display = asistencia === "no" ? "block" : "none";
-    siAsisteCampos.style.display = asistencia === "si" ? "block" : "none";
-    plazasBusCampo.style.display = bus === "si" ? "block" : "none";
-  });
-
-  document.getElementById("formulario-asistencia").addEventListener("submit", function (e) {
-    e.preventDefault();
-
+  
+    // Recolección de datos
     const data = {
-      asistencia: document.querySelector('input[name="asistencia"]:checked')?.value || "",
-      nombres: document.querySelector("#nombres_si")?.value || document.querySelector("#nombres_no")?.value || "",
-      alergia: document.querySelector('input[name="alergia"]')?.value || "",
-      bus: document.querySelector('input[name="bus"]:checked')?.value || "",
-      plazas: document.querySelector('input[name="plazas"]')?.value || "",
-      cancion: document.querySelector('input[name="cancion"]')?.value || "",
-      mensaje: document.querySelector('textarea[name="mensaje"]')?.value || ""
+      asistencia,
+      nombres: asistencia === "si" ? nombresSi.value.trim() : nombresNo.value.trim(),
+      alergia: form.elements["alergia"]?.value || "",
+      bus: busSeleccionado || "",
+      plazas: busSeleccionado === "si" ? plazasInput.value : "",
+      cancion: form.elements["cancion"]?.value || "",
+      mensaje: form.elements["mensaje"]?.value || ""
     };
-
-    fetch("https://script.google.com/macros/s/AKfycbyqj7tJfGLjXbts6ZeOOQ6ohZfE3AcmCH2xb-Ky6-JhkO0ZDoOvX8PCGwGRAy-ep8Ho7w/exec", { // REEMPLAZA con tu URL
+  
+    fetch("https://script.google.com/macros/s/AKfycbyqj7tJfGLjXbts6ZeOOQ6ohZfE3AcmCH2xb-Ky6-JhkO0ZDoOvX8PCGwGRAy-ep8Ho7w/exec", {
       method: "POST",
       body: JSON.stringify(data),
       headers: {
         "Content-Type": "application/json"
       },
-      mode: 'no-cors'  // Esto deshabilita CORS
-
+      mode: "no-cors"
     })
-    .then(res => res.text())
-    .then(msg => {
-      alert("¡Gracias por confirmar!");
-      document.getElementById("formulario-asistencia").reset();
-    })
-    .catch(err => {
-      console.error("Error al enviar", err);
-      alert("Hubo un problema al enviar tu respuesta.");
-    });
+      .then(() => {
+        alert("¡Gracias por confirmar!");
+        form.reset();
+        siAsisteCampos.style.display = "none";
+        noAsisteCampo.style.display = "none";
+        plazasBusCampo.style.display = "none";
+        revisarEstadoFormulario(); // volver a desactivar botón
+      })
+      .catch((err) => {
+        console.error("Error al enviar", err);
+        alert("Hubo un problema al enviar tu respuesta.");
+      });
   });
 
-  // Lógica para mostrar/ocultar campos
-  document.querySelectorAll('input[name="asistencia"]').forEach(radio => {
-    radio.addEventListener("change", function () {
-      document.getElementById("si-asiste-campos").style.display = this.value === "si" ? "block" : "none";
-      document.getElementById("no-asiste-campo").style.display = this.value === "no" ? "block" : "none";
-    });
+  // Mostrar/ocultar campos dinámicamente
+  form.addEventListener("change", () => {
+    const asistencia = form.elements["asistencia"].value;
+    const bus = form.elements["bus"].value;
+  
+    noAsisteCampo.style.display = asistencia === "no" ? "block" : "none";
+    siAsisteCampos.style.display = asistencia === "si" ? "block" : "none";
+    plazasBusCampo.style.display = bus === "si" ? "block" : "none";
   });
 
-  document.querySelectorAll('input[name="bus"]').forEach(radio => {
-    radio.addEventListener("change", function () {
-      document.getElementById("plazas-bus").style.display = this.value === "si" ? "block" : "none";
-    });
-  });
+  // Activar/desactivar el botón según la validez del formulario
+  function revisarEstadoFormulario() {
+    const asistencia = form.elements["asistencia"].value;
 
+    if (!asistencia) {
+      botonEnviar.disabled = true;
+      return;
+    }
+
+    if (asistencia === "no") {
+      botonEnviar.disabled = nombresNo.value.trim() === "";
+      return;
+    }
+
+    if (asistencia === "si") {
+      const nombresOk = nombresSi.value.trim() !== "";
+      const busSeleccionado = form.elements["bus"].value;
+
+      if (!busSeleccionado) {
+        botonEnviar.disabled = true;
+        return;
+      }
+
+      const plazasOk = busSeleccionado === "no" || (plazasInput.value && parseInt(plazasInput.value) > 0);
+
+      botonEnviar.disabled = !(nombresOk && plazasOk);
+    }
+  }
+
+  // Ejecutar revisión al cargar
+  revisarEstadoFormulario();
+
+  // Revisión dinámica en cada input
+  form.querySelectorAll("input, textarea, select").forEach(el => {
+    el.addEventListener("input", revisarEstadoFormulario);
+    el.addEventListener("change", revisarEstadoFormulario);
+  });
 });
