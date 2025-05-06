@@ -26,6 +26,16 @@
 </head>
 
 <body>
+
+   <!-- Imagen a pantalla completa -->
+   <div id="imagenPantallaCompleta" class="imagen-pantalla">
+    <img src="images/imagen.jpg" alt="Imagen Inicial" id="imagen" class="imagen">
+  </div>
+
+  <audio id="audio" autoplay loop>
+    <source src="cancion.mp3" type="audio/mpeg" preload="auto">
+  </audio>
+  <div id="contenidoPagina" class="contenidoPagina" style="display: none;">
   <header class="hero">
     <div class="overlay">
       <div class="contenido-principal">
@@ -268,16 +278,13 @@
     <h2 class="texto-footer">Gracias por acompañarnos en<br> este día tan especial para<br> nosotros</h2>
   </section>
 
-  <audio id="musica" autoplay loop>
-    <source src="cancion.mp3" type="audio/mpeg" preload="auto">
-    Tu navegador no soporta el audio.
-  </audio>
+  
   
   <button id="toggleMusica" class="boton-musica">
     <i class="fas fa-pause"></i>
   </button>
   
+</div>
 
-  
 </body>
 </html>
