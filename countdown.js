@@ -199,5 +199,7 @@ imagenPantalla.addEventListener('click', function () {
   contenidoPagina.style.display = 'block';
 
   // Reproducir música al hacer clic
-  audio.play();
+  audio.play().catch(function (err) {
+    console.warn("No se pudo reproducir el audio automáticamente:", err);
+  });
 });
