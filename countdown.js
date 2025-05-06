@@ -27,20 +27,30 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // 🎵 Música
   const audio = document.getElementById("musica");
-  const boton = document.getElementById("toggleMusica");
+const boton = document.getElementById("toggleMusica");
 
-  let estaSonando = true;
+let estaSonando = true;
 
-  boton.addEventListener("click", () => {
-    if (estaSonando) {
-      audio.pause();
-      boton.textContent = "🔇";
-    } else {
-      audio.play();
-      boton.textContent = "🔊";
-    }
-    estaSonando = !estaSonando;
+// Intenta reproducir automáticamente con sonido (desmuteado)
+document.addEventListener("DOMContentLoaded", () => {
+  audio.muted = false;
+  audio.play().catch((error) => {
+    console.log("Autoplay bloqueado por el navegador:", error);
   });
+});
+
+// Botón para pausar/reanudar
+boton.addEventListener("click", () => {
+  if (estaSonando) {
+    audio.pause();
+    boton.textContent = "🔇";
+  } else {
+    audio.play();
+    boton.textContent = "🔊";
+  }
+  estaSonando = !estaSonando;
+});
+
 
   // Lógica del formulario de asistencia
   const form = document.getElementById("formulario-asistencia");
