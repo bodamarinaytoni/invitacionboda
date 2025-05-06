@@ -13,14 +13,20 @@ html, body {
 
 /* Fuente personalizada */
 @font-face {
-  font-family: 'Lovelace';
-  src: url('fonts/lovelace.woff2') format('woff2'),
-       url('fonts/lovelace.woff') format('woff'),
-       url('fonts/lovelace.ttf') format('truetype');
+  font-family: 'Lovelace Medium';
+  src: url('fonts/Zetafonts\ -\ Lovelace\ Text\ Regular.otf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Cormorant Garamond Regular';
+  src: url('fonts/CormorantGaramond-Regular.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
 
+/* Hero: imagen de fondo sin espacios */
 /* Hero: imagen de fondo sin espacios */
 .hero {
   background-image: url('cabecera1.png');
@@ -37,7 +43,6 @@ html, body {
   overflow: hidden;
 }
 
-/* Recuadro blanco semitransparente */
 .overlay {
   background-color: rgba(255, 255, 255, 0.85);
   padding: 3rem 2.5rem;  /* Aumento el padding a 2.5rem */
@@ -45,39 +50,40 @@ html, body {
   text-align: center;
   width: 75%;
   max-width: 500px;
-  min-height: 400px; /* Aumento la altura mínima a 400px */
+  height: 60vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;  /* Asegura que los elementos se distribuyan */
   align-items: center;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
   position: absolute;
-  top: 50%;
+  top: 20%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 1;
+  z-index: 10;
 }
 
 /* Estilo del título */
 .overlay h1 {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Cormorant Garamond Regular', serif;
   font-size: 3.5rem;
-  color: #333;
+  color: #000000;
   margin-bottom: 1rem;
 }
 
 /* Estilo de los párrafos */
 .overlay p {
-  font-size: 1.5rem;
+  font-family: 'Cormorant Garamond Regular', serif;
+  font-size: 1.5rem !important; 
   margin: 0.5rem 0;
-  color: #555;
+  color: #000000;
 }
 
 .overlay p.especial {
   font-family: "Angeletta W04 Regular";
-  font-size: 2rem;
-  font-weight: bold;
-  color: #333;
+  font-size:  5rem !important; 
+  font-weight: lighter;
+  color: #000000;
 }
 
 /* Ajustes para dispositivos móviles */
@@ -98,7 +104,7 @@ html, body {
   /* Ajustes para el overlay */
   .overlay {
     width: 90%;  /* Asegura que el overlay sea un 90% del ancho en móviles */
-    min-height: 250px;  /* Reduce la altura mínima */
+    min-height: 80vh;  /* Aumenta la altura mínima en móviles a un 80% de la altura de la pantalla */
     padding: 2rem 2rem;  /* Ajusta el padding */
     margin-top: 0; /* Elimina el espacio extra en la parte superior */
   }
@@ -112,23 +118,10 @@ html, body {
   }
 }
 
-/* Estilo del círculo con flechas hacia abajo */
-.scroll-indicator {
-  text-align: center;
-  margin-top: 20px;
-}
 
-.circle {
-  width: 50px;
-  height: 50px;
-  border: 2px solid #333;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  animation: expandCircle 1s infinite;  /* Animación para expandir el círculo */
-}
+
+
+
 
 
 /* Frase con fondo verde */
@@ -174,7 +167,7 @@ html, body {
 
 .countdown h2 {
   font-family: 'Great Vibes', cursive;
-  font-size: 70px; /* ajusta según tu preferencia */
+  font-size: 35px !important; /* ajusta según tu preferencia */
   font-weight: normal; /* asegúrate que no esté en bold */
   color: #000000;
   margin-bottom: 2rem;
@@ -296,7 +289,8 @@ html, body {
 .hora-celebracion,
 .hora-ceremonia {
   font-family: 'Public Sans', sans-serif;
-  font-size: 3rem;
+  padding-top: 0.2cm;
+  font-size: 1.5rem;
   color: #303f1d;
   margin: 0.2rem 0;
 }
@@ -419,7 +413,8 @@ html, body {
   font-family: 'Belleza', sans-serif;
   font-size: 1.5rem;
   color: #303f1d;
-  margin: 0.3rem 0;
+  margin: 0.3rem 0.5rem;
+  margin-bottom: 0.2cm;
 }
 /*Dress code*/
 .dress {
@@ -432,6 +427,7 @@ html, body {
   font-family: 'Great Vibes', cursive;
   font-size: 2.5rem;
   color: #303f1d;
+  font-weight: lighter;
   margin-bottom: 0.2rem;
 }
 
@@ -443,21 +439,22 @@ html, body {
 }
 
 .texto-dress {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Cormorant Garamond Regular', serif;
   font-size: 1.2rem;
   color: #303f1d;
   margin-bottom: 1rem;
 }
 
 .texto-formal {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Lovelace Medium', cursive;
   font-size: 1.2rem;
   color: #303f1d;
   margin-bottom: 1rem;
+  font-weight: bolder;
 }
 
 .texto-dressvestido {
-  font-family: 'Belleza', sans-serif;
+  font-family: 'Cormorant Garamond Regular', sans-serif;
   font-size: 1.5rem;
   color: #303f1d;
   margin: 0.3rem 0;
@@ -486,7 +483,7 @@ html, body {
 }
 
 .texto-regalo {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Cormorant Garamond Regular', serif;
   font-size: 1.2rem;
   max-width: 600px;
   margin: 0 auto;
@@ -494,7 +491,7 @@ html, body {
 }
 
 .texto-cuenta {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Belleza', serif;
   font-size: 1.2rem;
   max-width: 600px;
   margin: 0 auto;
@@ -547,7 +544,7 @@ html, body {
 }
 
 .hotel-description {
-  font-family: 'Public Sans', sans-serif;
+  font-family: 'Cormorant Garamond Regular', sans-serif;
   font-size: 1.2rem;
   color: #555;
   margin-bottom: 2rem;
@@ -575,7 +572,7 @@ html, body {
 }
 
 .hotel-map-link {
-  font-family: 'Public Sans', sans-serif;
+  font-family: 'Cormorant Garamond Regular', sans-serif;
   font-size: 1rem;
   color: #303f1d;
   text-decoration: none;
@@ -611,7 +608,7 @@ html, body {
 
 
 .hotel-title {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Cormorant Garamond Regular', serif;
   font-size: 1.5rem;
   color: #303f1d;
   margin-bottom: 15px; /* Espacio debajo del título */
@@ -619,16 +616,16 @@ html, body {
 }
 
 .hotel-phone {
-  font-family: 'Public Sans', sans-serif;
-  font-size: 1rem;
+  font-family: 'Cormorant Garamond Regular', sans-serif;
+  font-size: 1.3rem;
   color: #303f1d;
   margin-bottom: 15px; /* Espacio debajo del teléfono */
   text-align: center;
 }
 
 .hotel-map-link {
-  font-family: 'Public Sans', sans-serif;
-  font-size: 1rem;
+  font-family: 'Cormorant Garamond Regular', sans-serif;
+  font-size: 1.3rem;
   color: #303f1d;
   text-decoration: none;
   text-align: center;
@@ -688,28 +685,7 @@ html, body {
   box-shadow: 0 2px 6px rgba(0,0,0,0.3);
 }
 
-/* Reset básico */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
 
-html, body {
-  height: 100%;
-  width: 100%;
-  overflow-x: hidden;
-}
-
-/* Fuente personalizada */
-@font-face {
-  font-family: 'Lovelace';
-  src: url('fonts/lovelace.woff2') format('woff2'),
-       url('fonts/lovelace.woff') format('woff'),
-       url('fonts/lovelace.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
 
 /* Hero: imagen de fondo sin espacios */
 .hero {
@@ -748,56 +724,7 @@ html, body {
   z-index: 1;
 }
 
-/* Estilo del título */
-.overlay h1 {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 3.5rem;
-  color: #333;
-  margin-bottom: 1rem;
-}
 
-/* Estilo de los párrafos */
-.overlay p {
-  font-size: 1.5rem;
-  margin: 0.5rem 0;
-  color: #555;
-}
-
-.overlay p.especial {
-  font-family: "Angeletta W04 Regular";
-  font-size: 2rem;
-  font-weight: bold;
-  color: #333;
-}
-
-/* Ajustes para dispositivos móviles */
-@media (max-width: 600px) {
-  .hero {
-    background-size: cover;
-    background-position: center top;
-    height: 70vh;
-  }
-
-  .hero img {
-    width: 100%;
-    height: auto;
-  }
-
-  .overlay {
-    width: 90%;
-    min-height: 250px;
-    padding: 2rem 2rem;
-    margin-top: 0;
-  }
-
-  .overlay h1 {
-    font-size: 2rem;
-  }
-
-  .overlay p {
-    font-size: 1.2rem;
-  }
-}
 
 /* Estilo del círculo con flechas hacia abajo */
 .scroll-indicator {
@@ -917,6 +844,9 @@ html, body {
   box-shadow: none;
   opacity: 0.7;
 }
+
+
+
 
 
 /* Sección Hotel */
