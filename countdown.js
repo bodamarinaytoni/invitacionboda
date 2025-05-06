@@ -190,17 +190,14 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 // Obtener elementos del DOM
-// Mover esto dentro de DOMContentLoaded
 const imagenPantalla = document.getElementById('imagenPantallaCompleta');
 const contenidoPagina = document.getElementById('contenidoPagina');
-const audio = document.getElementById('audio');
+const audio = document.getElementById('musica');  // usar "musica" aquí también
 
 imagenPantalla.addEventListener('click', function () {
   imagenPantalla.style.display = 'none';
   contenidoPagina.style.display = 'block';
-  
-  // Intenta reproducir la música al hacer clic
-  audio.play().catch(function (err) {
-    console.warn("No se pudo reproducir el audio automáticamente:", err);
-  });
+
+  // Reproducir música al hacer clic
+  audio.play();
 });
