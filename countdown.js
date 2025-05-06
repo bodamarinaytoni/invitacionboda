@@ -31,6 +31,12 @@ document.addEventListener("DOMContentLoaded", function () {
   const icono = boton.querySelector("i");
   
   let estaSonando = true;
+  audio.play();  // Reproduce el audio automáticamente
+
+  // Detenemos el auto play en navegadores que bloquean el autoplay
+  audio.play().catch(function (error) {
+    console.log('Autoplay bloqueado:', error);
+  });
   
   boton.addEventListener("click", () => {
     if (estaSonando) {
