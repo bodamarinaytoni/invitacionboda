@@ -29,27 +29,41 @@ document.addEventListener("DOMContentLoaded", function () {
   const audio = document.getElementById("musica");
   const boton = document.getElementById("toggleMusica");
   const icono = boton.querySelector("i");
-  
-  let estaSonando = true;
-  audio.play();  // Reproduce el audio automáticamente
 
-  // Detenemos el auto play en navegadores que bloquean el autoplay
-  audio.play().catch(function (error) {
-    console.log('Autoplay bloqueado:', error);
+  const imagenPantalla = document.getElementById('imagenPantallaCompleta');
+  const contenidoPagina = document.getElementById('contenidoPagina');
+
+  let estaSonando = false;
+
+  imagenPantalla.addEventListener('click', function () {
+    imagenPantalla.style.display = 'none';
+    contenidoPagina.style.display = 'block';
+
+    audio.play().then(() => {
+      estaSonando = true;
+      icono.classList.remove("fa-play");
+      icono.classList.add("fa-pause");
+    }).catch(err => {
+      console.warn("No se pudo reproducir el audio automáticamente:", err);
+    });
   });
-  
+
   boton.addEventListener("click", () => {
     if (estaSonando) {
       audio.pause();
       icono.classList.remove("fa-pause");
       icono.classList.add("fa-play");
     } else {
-      audio.play();
-      icono.classList.remove("fa-play");
-      icono.classList.add("fa-pause");
+      audio.play().then(() => {
+        icono.classList.remove("fa-play");
+        icono.classList.add("fa-pause");
+      }).catch(err => {
+        console.warn("No se pudo reproducir el audio:", err);
+      });
     }
     estaSonando = !estaSonando;
   });
+
   
 
 
@@ -187,19 +201,5 @@ document.addEventListener("DOMContentLoaded", function () {
   form.querySelectorAll("input, textarea, select").forEach(el => {
     el.addEventListener("input", revisarEstadoFormulario);
     el.addEventListener("change", revisarEstadoFormulario);
-  });
-});
-// Obtener elementos del DOM
-const imagenPantalla = document.getElementById('imagenPantallaCompleta');
-const contenidoPagina = document.getElementById('contenidoPagina');
-const audio = document.getElementById('musica');  // usar "musica" aquí también
-
-imagenPantalla.addEventListener('click', function () {
-  imagenPantalla.style.display = 'none';
-  contenidoPagina.style.display = 'block';
-
-  // Reproducir música al hacer clic
-  audio.play().catch(function (err) {
-    console.warn("No se pudo reproducir el audio automáticamente:", err);
   });
 });
