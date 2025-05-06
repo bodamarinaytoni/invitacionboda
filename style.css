@@ -26,6 +26,49 @@ html, body {
   font-style: normal;
 }
 
+/* Imagen de pantalla completa */
+.imagen-pantalla {
+  width: 100vw;  /* Ocupa todo el ancho de la pantalla */
+  height: 100vh; /* Ocupa todo el alto de la pantalla */
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.imagen {
+  width: 100%;   /* La imagen ocupará el 100% del ancho de la pantalla */
+  height: 100%;  /* La imagen ocupará el 100% del alto de la pantalla */
+  object-fit: cover; /* La imagen se expandirá para cubrir toda la pantalla sin distorsionarse */
+  object-position: center; /* Centra la imagen dentro de la caja */
+}
+
+/* Botón de música */
+.boton-musica {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.5rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.boton-musica:hover {
+  background-color: #45a049;
+}
+
+
+
+
 /* Hero: imagen de fondo sin espacios */
 /* Hero: imagen de fondo sin espacios */
 .boton-musica {
