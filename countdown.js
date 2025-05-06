@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
   setInterval(updateCountdown, 1000);
 
   // 🎵 Música
-  const audio = document.getElementById("musica");
+  const audio = document.getElementById("audio");
   const boton = document.getElementById("toggleMusica");
   const icono = boton.querySelector("i");
   
