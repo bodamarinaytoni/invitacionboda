@@ -838,6 +838,15 @@ html, body {
   margin-top: 1rem;
 }
 
+input[type="text"]:focus,
+textarea:focus {
+  background-color: #ffffff; /* color azul claro */
+  outline: 2px solid #303f1d; /* opcional, para quitar el borde por defecto */
+  border: 2px solid #303f1d; /* borde azul más visible */
+}
+
+
+
 .formulario-asistencia input[type="text"] {
   width: 100%;
   padding: 10px;
@@ -863,6 +872,39 @@ html, body {
 
 .formulario-asistencia input[type="radio"]:checked ~ .campo-nombres {
   display: block;
+}
+input[type="radio"] {
+  accent-color: #303f1d; /* Cambia este color al que quieras */
+}
+
+#plazas {
+  font-size: 16px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+}
+
+#plazas:focus {
+  outline: none;
+  outline: 2px solid #303f1d; /* aquí el color que quieras */
+}
+
+#mensaje {
+  font-size: 16px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+}
+
+#mensaje:focus {
+  outline: none;
+  outline: 2px solid #303f1d; /* aquí el color que quieras */
 }
 
 .form-button {
