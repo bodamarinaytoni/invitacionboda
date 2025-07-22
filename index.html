@@ -232,7 +232,7 @@
         <!-- Pregunta 5 -->
         <div id="plazas-bus" style="display: none;">
           <label>Número de plazas necesarias *</label>
-          <input type="number" name="plazas" id="plazas" min="1">
+          <input type="number" name="plazas" id="plazas" min="1" inputmode="numeric" pattern="[0-9]*" />
         </div>
   
         <!-- Pregunta 6 -->
@@ -241,7 +241,7 @@
   
         <!-- Pregunta 7 -->
         <label>¿Quieres dejarnos un mensaje?</label>
-        <textarea name="mensaje"></textarea>
+        <textarea name="mensaje" id="mensaje"></textarea>
       </div>
   
       <button type="submit" id="enviar-asistencia" class="form-button" disabled>Enviar</button>
