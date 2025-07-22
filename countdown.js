@@ -64,6 +64,13 @@ document.addEventListener("DOMContentLoaded", function () {
     estaSonando = !estaSonando;
   });
 
+  function mostrarMensaje(texto) {
+    const div = document.createElement("div");
+    div.className = "mensaje-error";
+    div.textContent = texto;
+    document.body.appendChild(div);
+    setTimeout(() => div.remove(), 4000);
+  }
   
 
 
@@ -94,7 +101,7 @@ document.addEventListener("DOMContentLoaded", function () {
   
     // Validaciones
     if (!asistencia) {
-      alert("Por favor, indica si asistirás.");
+      mostrarMensaje("Por favor, indica si asistirás.");
       return;
     }
   
@@ -138,8 +145,7 @@ document.addEventListener("DOMContentLoaded", function () {
       body: JSON.stringify(data),
       headers: {
         "Content-Type": "application/json"
-      },
-      mode: "no-cors"
+      }
     })
       .then(() => {
         const mensaje = document.createElement("div");
