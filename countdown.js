@@ -142,7 +142,10 @@ document.addEventListener("DOMContentLoaded", function () {
       mode: "no-cors"
     })
       .then(() => {
-        alert("¡Gracias por confirmar!");
+        const mensaje = document.createElement("div");
+        mensaje.textContent = "¡Gracias por confirmar!";
+        mensaje.classList.add("mensaje-confirmacion");
+        document.body.appendChild(mensaje);
         form.reset();
         siAsisteCampos.style.display = "none";
         noAsisteCampo.style.display = "none";
