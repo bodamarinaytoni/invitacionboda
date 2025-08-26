@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // Control de la cuenta regresiva
+  // ===== Countdown =====
   const countdownDate = new Date("2025-12-20T11:00:00").getTime();
 
   function updateCountdown() {
@@ -25,6 +25,146 @@ document.addEventListener("DOMContentLoaded", function () {
   updateCountdown();
   setInterval(updateCountdown, 1000);
 
+  
+  // ===== Animaciones secuenciales ubicaciones =====
+  const ubicaciones = document.querySelectorAll('.ubicacion-ceremonia, .ubicacion-celebracion');
+
+const observerUbicaciones = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const index = Array.from(ubicaciones).indexOf(entry.target);
+      entry.target.style.transitionDelay = `${index * 0.3}s`;
+      entry.target.classList.add('animate');
+      observerUbicaciones.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.5 });
+
+ubicaciones.forEach(el => observerUbicaciones.observe(el));
+
+  // ===== Countdown animado =====
+  const countdownContent = document.querySelector('.countdown-content');
+  if (countdownContent) {
+    const observerCountdown = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          countdownContent.classList.add('animate');
+          observerCountdown.unobserve(countdownContent);
+        }
+      });
+    }, { threshold: 0.5 });
+    observerCountdown.observe(countdownContent);
+  }
+
+  // ===== Animaciones itinerario =====
+  const itinerario = document.querySelectorAll('.itinerario .titulo-itinerario, .itinerario .evento');
+  const observerItinerario = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const index = Array.from(itinerario).indexOf(entry.target);
+        entry.target.style.transitionDelay = `${index * 0.2}s`;
+        entry.target.classList.add('animate');
+        observerItinerario.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.3 });
+  itinerario.forEach(el => observerItinerario.observe(el));
+
+  const autobus = document.querySelector('.autobus');
+
+  if (autobus) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          // Animar elementos internos secuencialmente
+          const hijos = autobus.children;
+          Array.from(hijos).forEach((el, index) => {
+            setTimeout(() => {
+              el.classList.add('animate');
+            }, index * 150); // retraso 150ms entre cada elemento
+          });
+
+          observer.unobserve(autobus); // solo animar una vez
+        }
+      });
+    }, { threshold: 0.3 }); // se activa cuando el 30% de la sección es visible
+
+    observer.observe(autobus);
+  }
+
+  const dressElements = document.querySelectorAll('.dress > *');
+
+  const observerDress = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        // Animación secuencial
+        const index = Array.from(dressElements).indexOf(entry.target);
+        entry.target.style.transitionDelay = `${index * 0.3}s`; // retraso por elemento
+        entry.target.classList.add('animate');
+        observerDress.unobserve(entry.target); // animar solo una vez
+      }
+    });
+  }, { threshold: 0.5 });
+
+  dressElements.forEach(el => observerDress.observe(el));
+
+  const regaloElements = document.querySelectorAll('.regalo > *');
+
+  const observerRegalo = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        // Animación secuencial
+        const index = Array.from(regaloElements).indexOf(entry.target);
+        setTimeout(() => {
+          entry.target.classList.add('animate');
+        }, index * 150); // retraso 150ms entre elementos
+
+        observerRegalo.unobserve(entry.target); // solo animar una vez
+      }
+    });
+  }, { threshold: 0.3 });
+
+  regaloElements.forEach(el => observerRegalo.observe(el));
+
+  const asistenciaElements = document.querySelectorAll('.asistencia > *');
+
+  const observerAsistencia = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        // Animación secuencial con efecto pop
+        const hijos = Array.from(asistenciaElements);
+        hijos.forEach((el, index) => {
+          setTimeout(() => {
+            el.classList.add('animate');
+          }, index * 150); // retraso 150ms entre elementos
+        });
+
+        observerAsistencia.unobserve(entry.target); // animar solo una vez
+      }
+    });
+  }, { threshold: 0.3 });
+
+  asistenciaElements.forEach(el => observerAsistencia.observe(el));
+
+  const hotelElements = document.querySelectorAll('.hotel > *');
+
+  const observerHotel = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        Array.from(hotelElements).forEach((el, index) => {
+          setTimeout(() => {
+            el.classList.add('animate');
+          }, index * 250); // retraso mayor para notar mejor el efecto
+        });
+
+        observerHotel.unobserve(entry.target); // animar solo una vez
+      }
+    });
+  }, { threshold: 0.3 });
+
+  hotelElements.forEach(el => observerHotel.observe(el));
+
+  
   // 🎵 Música
   const audio = document.getElementById("musica");
   const boton = document.getElementById("toggleMusica");
@@ -73,6 +213,11 @@ document.addEventListener("DOMContentLoaded", function () {
   const noAsisteCampo = document.getElementById("no-asiste-campo");
   const siAsisteCampos = document.getElementById("si-asiste-campos");
   const plazasBusCampo = document.getElementById("plazas-bus");
+
+  const formFields = document.querySelectorAll('#formulario-asistencia input, #formulario-asistencia select, #formulario-asistencia textarea');
+formFields.forEach(field => {
+  field.setAttribute('autocomplete', 'off');
+});
 
   function revisarEstadoFormulario() {
     const asistencia = form.elements["asistencia"].value;
