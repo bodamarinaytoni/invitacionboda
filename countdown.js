@@ -33,11 +33,11 @@ document.addEventListener("DOMContentLoaded", function () {
     { selector: '.ubicacion-ceremonia, .ubicacion-celebracion', clase: 'animate-up', delay: 500 },
     { selector: '.countdown-content', clase: 'animate-up', delay: 300 },
     { selector: '.autobus > *', clase: 'animate-left', delay: 150 },
-    { selector: '.itinerario .titulo-itinerario, .itinerario .evento', clase: 'animate-curtain-vertical', delay: 200 },
+    { selector: '.itinerario .titulo-itinerario, .itinerario .evento', clase: 'animate-curtain-vertical', delay: 150 },
     { selector: '.dress > *', clase: 'animate-up', delay: 150 },
     { selector: '.regalo > *', clase: 'animate-left', delay: 150 },
     { selector: '.asistencia > *', clase: 'animate-pop', delay: 150 },
-    { selector: '.hotel > *', clase: 'animate-fade', delay: 250 }
+    { selector: '.hotel > *', clase: 'animate-fade', delay: 150 }
   ];
 
   seccionesAnimadas.forEach(seccion => {
