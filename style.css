@@ -388,6 +388,14 @@ html, body {
   padding-top: 0;
 }
 
+.celebracion-img{
+  width: 200px;
+  height: auto;
+  margin: 0 auto;
+  display: block;
+  padding-top: 0;
+}
+
 .titulo-celebracion,
 .titulo-ceremonia {
   font-family: 'Cormorant Garamond', serif;
