@@ -26,143 +26,43 @@ document.addEventListener("DOMContentLoaded", function () {
   setInterval(updateCountdown, 1000);
 
   
-  // ===== Animaciones secuenciales ubicaciones =====
-  const ubicaciones = document.querySelectorAll('.ubicacion-ceremonia, .ubicacion-celebracion');
 
-const observerUbicaciones = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      const index = Array.from(ubicaciones).indexOf(entry.target);
-      entry.target.style.transitionDelay = `${index * 0.3}s`;
-      entry.target.classList.add('animate');
-      observerUbicaciones.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.5 });
+  // ===== Secciones animadas =====
+  const seccionesAnimadas = [
+    { selector: '.countdown', clase: 'animate-left'},
+    { selector: '.ubicacion-ceremonia, .ubicacion-celebracion', clase: 'animate-up', delay: 500 },
+    { selector: '.countdown-content', clase: 'animate-up', delay: 300 },
+    { selector: '.autobus > *', clase: 'animate-left', delay: 150 },
+    { selector: '.itinerario .titulo-itinerario, .itinerario .evento', clase: 'animate-curtain-vertical', delay: 200 },
+    { selector: '.dress > *', clase: 'animate-up', delay: 150 },
+    { selector: '.regalo > *', clase: 'animate-pop', delay: 150 },
+    { selector: '.asistencia > *', clase: 'animate-pop', delay: 150 },
+    { selector: '.hotel > *', clase: 'animate-fade', delay: 250 }
+  ];
 
-ubicaciones.forEach(el => observerUbicaciones.observe(el));
+  seccionesAnimadas.forEach(seccion => {
+    const elementos = document.querySelectorAll(seccion.selector);
 
-  // ===== Countdown animado =====
-  const countdownContent = document.querySelector('.countdown-content');
-  if (countdownContent) {
-    const observerCountdown = new IntersectionObserver((entries) => {
+    elementos.forEach(el => el.classList.add(seccion.clase)); // clase base
+
+    if (elementos.length === 0) return;
+
+    const observer = new IntersectionObserver((entries, obs) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          countdownContent.classList.add('animate');
-          observerCountdown.unobserve(countdownContent);
-        }
-      });
-    }, { threshold: 0.5 });
-    observerCountdown.observe(countdownContent);
-  }
-
-  // ===== Animaciones itinerario =====
-  const itinerario = document.querySelectorAll('.itinerario .titulo-itinerario, .itinerario .evento');
-  const observerItinerario = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const index = Array.from(itinerario).indexOf(entry.target);
-        entry.target.style.transitionDelay = `${index * 0.2}s`;
-        entry.target.classList.add('animate');
-        observerItinerario.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.3 });
-  itinerario.forEach(el => observerItinerario.observe(el));
-
-  const autobus = document.querySelector('.autobus');
-
-  if (autobus) {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          // Animar elementos internos secuencialmente
-          const hijos = autobus.children;
-          Array.from(hijos).forEach((el, index) => {
+          Array.from(elementos).forEach((el, index) => {
             setTimeout(() => {
               el.classList.add('animate');
-            }, index * 150); // retraso 150ms entre cada elemento
+            }, index * seccion.delay);
           });
-
-          observer.unobserve(autobus); // solo animar una vez
+          obs.disconnect(); // animar solo una vez
         }
       });
-    }, { threshold: 0.3 }); // se activa cuando el 30% de la sección es visible
+    }, { threshold: 0.3 });
 
-    observer.observe(autobus);
-  }
-
-  const dressElements = document.querySelectorAll('.dress > *');
-
-  const observerDress = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        // Animación secuencial
-        const index = Array.from(dressElements).indexOf(entry.target);
-        entry.target.style.transitionDelay = `${index * 0.3}s`; // retraso por elemento
-        entry.target.classList.add('animate');
-        observerDress.unobserve(entry.target); // animar solo una vez
-      }
-    });
-  }, { threshold: 0.5 });
-
-  dressElements.forEach(el => observerDress.observe(el));
-
-  const regaloElements = document.querySelectorAll('.regalo > *');
-
-  const observerRegalo = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        // Animación secuencial
-        const index = Array.from(regaloElements).indexOf(entry.target);
-        setTimeout(() => {
-          entry.target.classList.add('animate');
-        }, index * 150); // retraso 150ms entre elementos
-
-        observerRegalo.unobserve(entry.target); // solo animar una vez
-      }
-    });
-  }, { threshold: 0.3 });
-
-  regaloElements.forEach(el => observerRegalo.observe(el));
-
-  const asistenciaElements = document.querySelectorAll('.asistencia > *');
-
-  const observerAsistencia = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        // Animación secuencial con efecto pop
-        const hijos = Array.from(asistenciaElements);
-        hijos.forEach((el, index) => {
-          setTimeout(() => {
-            el.classList.add('animate');
-          }, index * 150); // retraso 150ms entre elementos
-        });
-
-        observerAsistencia.unobserve(entry.target); // animar solo una vez
-      }
-    });
-  }, { threshold: 0.3 });
-
-  asistenciaElements.forEach(el => observerAsistencia.observe(el));
-
-  const hotelElements = document.querySelectorAll('.hotel > *');
-
-  const observerHotel = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        Array.from(hotelElements).forEach((el, index) => {
-          setTimeout(() => {
-            el.classList.add('animate');
-          }, index * 250); // retraso mayor para notar mejor el efecto
-        });
-
-        observerHotel.unobserve(entry.target); // animar solo una vez
-      }
-    });
-  }, { threshold: 0.3 });
-
-  hotelElements.forEach(el => observerHotel.observe(el));
+    // Observamos el primer elemento de la sección
+    observer.observe(elementos[0].parentElement || elementos[0]);
+  });
 
   
   // 🎵 Música
