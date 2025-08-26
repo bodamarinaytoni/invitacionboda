@@ -28,41 +28,40 @@ document.addEventListener("DOMContentLoaded", function () {
   
 
   // ===== Secciones animadas =====
-  const seccionesAnimadas = [
-    { selector: '.countdown', clase: 'animate-left'},
-    { selector: '.ubicacion-ceremonia, .ubicacion-celebracion', clase: 'animate-up', delay: 500 },
-    { selector: '.countdown-content', clase: 'animate-up', delay: 300 },
-    { selector: '.autobus > *', clase: 'animate-left', delay: 150 },
-    { selector: '.itinerario .titulo-itinerario, .itinerario .evento', clase: 'animate-curtain-vertical', delay: 150 },
-    { selector: '.dress > *', clase: 'animate-up', delay: 150 },
-    { selector: '.regalo > *', clase: 'animate-left', delay: 150 },
-    { selector: '.asistencia > *', clase: 'animate-pop', delay: 150 },
-    { selector: '.hotel > *', clase: 'animate-fade', delay: 150 }
-  ];
+const seccionesAnimadas = [
+  { selector: '.countdown', clase: 'animate-left' },
+  { selector: '.ubicacion-ceremonia, .ubicacion-celebracion', clase: 'animate-up', delay: 500 },
+  { selector: '.countdown-content', clase: 'animate-up', delay: 300 },
+  { selector: '.autobus > *', clase: 'animate-left', delay: 150 },
+  { selector: '.itinerario .titulo-itinerario, .itinerario .evento', clase: 'animate-curtain-vertical', delay: 150, threshold: 0.1 }, // más sensible
+  { selector: '.dress > *', clase: 'animate-up', delay: 150 },
+  { selector: '.regalo > *', clase: 'animate-left', delay: 150 },
+  { selector: '.asistencia > *', clase: 'animate-pop', delay: 150 },
+  { selector: '.hotel > *', clase: 'animate-fade', delay: 150 }
+];
 
-  seccionesAnimadas.forEach(seccion => {
-    const elementos = document.querySelectorAll(seccion.selector);
+seccionesAnimadas.forEach(seccion => {
+  const elementos = document.querySelectorAll(seccion.selector);
 
-    elementos.forEach(el => el.classList.add(seccion.clase)); // clase base
+  elementos.forEach(el => el.classList.add(seccion.clase)); // clase base
 
-    if (elementos.length === 0) return;
+  if (elementos.length === 0) return;
 
-    const observer = new IntersectionObserver((entries, obs) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          Array.from(elementos).forEach((el, index) => {
-            setTimeout(() => {
-              el.classList.add('animate');
-            }, index * seccion.delay);
-          });
-          obs.disconnect(); // animar solo una vez
-        }
-      });
-    }, { threshold: 0.3 });
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        Array.from(elementos).forEach((el, index) => {
+          setTimeout(() => {
+            el.classList.add('animate');
+          }, index * (seccion.delay || 100));
+        });
+        obs.disconnect(); // animar solo una vez
+      }
+    });
+  }, { threshold: seccion.threshold || 0.3 }); // usa threshold específico si existe
 
-    // Observamos el primer elemento de la sección
-    observer.observe(elementos[0].parentElement || elementos[0]);
-  });
+  observer.observe(elementos[0].parentElement || elementos[0]);
+});
 
   
   // 🎵 Música
