@@ -282,12 +282,6 @@ html, body {
   transition: transform 1.5s ease-out, opacity 1.5s ease-out;
 }
 
-/* Clase que activa la animación */
-.countdown-content.animate {
-  transform: translateY(0); /* vuelve a su posición natural */
-  opacity: 1;
-}
-
 .countdown h2 {
   font-family: 'Great Vibes', cursive;
   font-size: 35px !important;
@@ -409,19 +403,8 @@ html, body {
   font-size: 2rem;
   color: #303f1d;
   margin-bottom: 0.5rem;
-
-  opacity: 0;
-  transform: translateY(50px);
-  transition: all 1s ease;
+  
 }
-
-.ubicacion-ceremonia.animate,
-.ubicacion-celebracion.animate {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-
 
 
 .direccion-celebracion,
@@ -478,21 +461,6 @@ html, body {
   background-color: #303f1d;; /* Color del subrayado */
 }
 
-/* Estado inicial: cortina cerrada */
-.itinerario .evento,
-.itinerario .titulo-itinerario {
-  opacity: 0;
-  transform: scaleY(0);
-  transform-origin: top; /* se abre desde arriba */
-  transition: transform 0.7s ease, opacity 0.7s ease;
-}
-
-/* Estado animado: cortina abierta */
-.itinerario .evento.animate,
-.itinerario .titulo-itinerario.animate {
-  opacity: 1;
-  transform: scaleY(1);
-}
 
 
 .itinerario {
@@ -553,19 +521,6 @@ html, body {
   
 }
 
-/* Elementos ocultos inicialmente, desplazados a la izquierda */
-.autobus > * {
-  opacity: 0;
-  transform: translateX(-50px); /* empieza 50px a la izquierda */
-  transition: opacity 0.6s ease, transform 0.6s ease;
-}
-
-/* Elementos animados */
-.autobus > *.animate {
-  opacity: 1;
-  transform: translateX(0); /* posición final */
-}
-
 .titulo-autobus {
   font-family: 'Great Vibes', cursive;
   font-size: 2.5rem;
@@ -600,16 +555,7 @@ html, body {
   text-align: center;
   padding: 2rem 1rem;
 }
-.dress > * {
-  opacity: 0;
-  transform: translateY(50px); /* empieza desplazado hacia abajo */
-  transition: opacity 0.8s ease, transform 0.8s ease;
-}
 
-.dress > *.animate {
-  opacity: 1;
-  transform: translateY(0); /* posición final */
-}
 .titulo-dress {
   font-family: 'Great Vibes', cursive;
   font-size: 2.5rem;
@@ -656,18 +602,6 @@ html, body {
   padding: 0 1rem 3rem 1rem; /* Sin padding superior */
 }
 
-/* Elementos ocultos inicialmente desplazados a la izquierda */
-.regalo > * {
-  opacity: 0;
-  transform: translateX(-50px); /* empieza a la izquierda */
-  transition: opacity 0.6s ease, transform 0.6s ease;
-}
-
-/* Elementos animados */
-.regalo > *.animate {
-  opacity: 1;
-  transform: translateX(0); /* posición final */
-}
 .regalo-img {
   width: 100%; /* La imagen ocupa todo el ancho disponible */
   height: auto; /* La altura se ajusta proporcionalmente */
@@ -706,18 +640,7 @@ html, body {
   padding: 0 1rem 3rem 1rem; /* Sin padding superior */
 }
 
-/* Elementos ocultos inicialmente y reducidos */
-.asistencia > * {
-  opacity: 0;
-  transform: scale(0.8); /* empieza más pequeño */
-  transition: opacity 0.5s ease, transform 0.5s ease;
-}
 
-/* Elementos animados */
-.asistencia > *.animate {
-  opacity: 1;
-  transform: scale(1); /* tamaño final */
-}
 
 
 .titulo-asistencia {
@@ -738,18 +661,6 @@ html, body {
   color: white;
   text-align: center;
   /* El color del texto en la sección, puedes cambiarlo según tu diseño */
-}
-/* Elementos ocultos inicialmente */
-.hotel > * {
-  opacity: 0;
-  transform: translateY(20px); /* empieza ligeramente abajo */
-  transition: opacity 0.8s ease, transform 0.8s ease;
-}
-
-/* Elementos animados */
-.hotel > *.animate {
-  opacity: 1;
-  transform: translateY(0); /* posición final */
 }
 
 
@@ -1139,4 +1050,62 @@ input[type="radio"] {
   padding: 2rem 1rem;
   color: white;
   text-align: center;
+}
+
+
+/* Animación de desplazamiento desde abajo (rebote) */
+.animate-up {
+  opacity: 0;
+  transform: translateY(80px);
+  transition: opacity 1s ease-out, transform 1s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+.animate-up.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Animación tipo pop */
+.animate-pop {
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.animate-pop.animate {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Animación paneo desde la izquierda */
+.animate-left {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.animate-left.animate {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Animación fundido */
+.animate-fade {
+  opacity: 0;
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  transform: translateY(20px);
+}
+.animate-fade.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* Cortina vertical */
+.animate-curtain-vertical {
+  opacity: 0;
+  transform: scaleY(0);      /* colapsada verticalmente */
+  transform-origin: top;     /* empieza desde arriba */
+  transition: transform 0.8s ease-out, opacity 0.8s ease-out;
+}
+.animate-curtain-vertical.animate {
+  opacity: 1;
+  transform: scaleY(1);      /* completamente desplegada */
 }
