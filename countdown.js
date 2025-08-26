@@ -66,58 +66,84 @@ document.addEventListener("DOMContentLoaded", function () {
 
   
   // 🎵 Música
-  const audio = document.getElementById("musica");
-  const boton = document.getElementById("toggleMusica");
-  const icono = boton.querySelector("i");
+const audio = document.getElementById("musica");
+const boton = document.getElementById("toggleMusica");
+const icono = boton.querySelector("i");
 
-  const imagenPantalla = document.getElementById('imagenPantallaCompleta');
-  const contenidoPagina = document.getElementById('contenidoPagina');
+const imagenPantalla = document.getElementById('imagenPantallaCompleta');
+const contenidoPagina = document.getElementById('contenidoPagina');
 
-  let estaSonando = false;
+let estaSonando = false;
+let estabaSonandoAntes = false;
 
-  imagenPantalla.addEventListener('click', function () {
-    imagenPantalla.style.display = 'none';
-    contenidoPagina.style.display = 'block';
+// Iniciar música al hacer click en la pantalla completa
+imagenPantalla.addEventListener('click', function () {
+  imagenPantalla.style.display = 'none';
+  contenidoPagina.style.display = 'block';
 
+  audio.play().then(() => {
+    estaSonando = true;
+    icono.classList.remove("fa-play");
+    icono.classList.add("fa-pause");
+  }).catch(err => {
+    console.warn("No se pudo reproducir el audio automáticamente:", err);
+  });
+});
+
+// Toggle play/pause manual
+boton.addEventListener("click", () => {
+  if (estaSonando) {
+    audio.pause();
+    icono.classList.remove("fa-pause");
+    icono.classList.add("fa-play");
+  } else {
     audio.play().then(() => {
-      estaSonando = true;
       icono.classList.remove("fa-play");
       icono.classList.add("fa-pause");
     }).catch(err => {
-      console.warn("No se pudo reproducir el audio automáticamente:", err);
+      console.warn("No se pudo reproducir el audio:", err);
     });
-  });
+  }
+  estaSonando = !estaSonando;
+});
 
-  boton.addEventListener("click", () => {
-    if (estaSonando) {
-      audio.pause();
-      icono.classList.remove("fa-pause");
-      icono.classList.add("fa-play");
-    } else {
-      audio.play().then(() => {
-        icono.classList.remove("fa-play");
-        icono.classList.add("fa-pause");
-      }).catch(err => {
-        console.warn("No se pudo reproducir el audio:", err);
-      });
-    }
-    estaSonando = !estaSonando;
+// ===== Pausar/Reanudar música al cambiar de pestaña o cerrar/suspender página =====
+function pausarMusica() {
+  estabaSonandoAntes = estaSonando && !audio.paused;
+  if (!audio.paused) {
+    audio.pause();
+    icono.classList.remove("fa-pause");
+    icono.classList.add("fa-play");
+    estaSonando = false;
+  }
+}
 
+function reanudarMusica() {
+  if (estabaSonandoAntes) {
+    audio.play().then(() => {
+      icono.classList.remove("fa-play");
+      icono.classList.add("fa-pause");
+      estaSonando = true;
+    }).catch(err => {
+      console.warn("No se pudo reanudar el audio:", err);
+    });
+  }
+}
 
-  });
-
-  // ===== Pausar música al cambiar de pestaña =====
+// Detecta cambio de visibilidad
 document.addEventListener("visibilitychange", () => {
   if (document.hidden) {
-    // La pestaña no está visible: pausa la música
-    if (!audio.paused) {
-      audio.pause();
-      icono.classList.remove("fa-pause");
-      icono.classList.add("fa-play");
-      estaSonando = false;
-    }
+    pausarMusica();
+  } else {
+    reanudarMusica();
   }
 });
+
+// Detecta cierre o navegación fuera de la página
+window.addEventListener("pagehide", () => {
+  pausarMusica();
+});
+
 
   // Lógica del formulario de asistencia
   const form = document.getElementById("formulario-asistencia");
