@@ -33,7 +33,7 @@ const seccionesAnimadas = [
   { selector: '.ubicacion-ceremonia, .ubicacion-celebracion', clase: 'animate-up', delay: 300 },
   { selector: '.countdown-content', clase: 'animate-up', delay: 300 },
   { selector: '.autobus > *', clase: 'animate-left', delay: 150 },
-  { selector: '.itinerario .titulo-itinerario, .itinerario .evento', clase: 'animate-curtain-vertical', delay: 500, threshold: 0.1 }, // más sensible
+  { selector: '.itinerario .titulo-itinerario, .itinerario .evento', clase: 'animate-curtain-vertical', delay: 400, threshold: 0.1 }, // más sensible
   { selector: '.dress > *', clase: 'animate-up', delay: 150 },
   { selector: '.regalo > *', clase: 'animate-left', delay: 150 },
   { selector: '.asistencia > *', clase: 'animate-pop', delay: 150 },
