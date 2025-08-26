@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function () {
     { selector: '.autobus > *', clase: 'animate-left', delay: 150 },
     { selector: '.itinerario .titulo-itinerario, .itinerario .evento', clase: 'animate-curtain-vertical', delay: 200 },
     { selector: '.dress > *', clase: 'animate-up', delay: 150 },
-    { selector: '.regalo > *', clase: 'animate-pop', delay: 150 },
+    { selector: '.regalo > *', clase: 'animate-left', delay: 150 },
     { selector: '.asistencia > *', clase: 'animate-pop', delay: 150 },
     { selector: '.hotel > *', clase: 'animate-fade', delay: 250 }
   ];
@@ -102,7 +102,22 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     }
     estaSonando = !estaSonando;
+
+
   });
+
+  // ===== Pausar música al cambiar de pestaña =====
+document.addEventListener("visibilitychange", () => {
+  if (document.hidden) {
+    // La pestaña no está visible: pausa la música
+    if (!audio.paused) {
+      audio.pause();
+      icono.classList.remove("fa-pause");
+      icono.classList.add("fa-play");
+      estaSonando = false;
+    }
+  }
+});
 
   // Lógica del formulario de asistencia
   const form = document.getElementById("formulario-asistencia");
