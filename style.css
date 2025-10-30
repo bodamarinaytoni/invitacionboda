@@ -25,6 +25,11 @@ html, body {
   font-weight: normal;
   font-style: normal;
 }
+@font-face {
+  font-family: 'Cormorant Garamond Bold';
+  src: url('fonts/CormorantGaramond-SemiBold.ttf') format('truetype');
+
+}
 
 @font-face {
   font-family: 'Angeletta';
@@ -543,6 +548,13 @@ html, body {
   margin-bottom: 0.2rem;
 }
 
+.subtitulo-autobus {
+  font-family: 'Cormorant Garamond Bold', cursive;
+  font-size: 1.8rem;
+  color: #303f1d;
+  margin-bottom: 0.2rem;
+}
+
 .imagen-autobus {
   width: 300px; /* ajusta según tu diseño */
   height: auto;
@@ -559,7 +571,7 @@ html, body {
 
 .horario {
   font-family: 'Belleza', sans-serif;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   color: #303f1d;
   margin: 0.3rem 0.5rem;
   margin-bottom: 0.2cm;
